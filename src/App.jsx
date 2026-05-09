@@ -294,21 +294,8 @@ function CatalogPage() {
   );
 }
 
-export default function App() {
+function HomePage() {
   const [search, setSearch] = useState("");
-  const path = window.location.pathname;
-
-  if (path === "/catalog") {
-    return <CatalogPage />;
-  }
-
-  if (path === "/radio") {
-    return <ComingSoonPage pageTitle="radio" />;
-  }
-
-  if (path === "/artists") {
-    return <ComingSoonPage pageTitle="artists" />;
-  }
 
   const searchItems = useMemo(() => {
     const releaseItems = releases.map((release) => ({
@@ -319,7 +306,15 @@ export default function App() {
       href: "/#journal",
     }));
 
-    return [...releaseItems, ...staticSearchItems];
+    const announcementItems = journalAnnouncements.map((announcement) => ({
+      type: "journal",
+      title: announcement.title,
+      subtitle: announcement.artist,
+      text: `${announcement.text} ${announcement.format}`,
+      href: "/#journal",
+    }));
+
+    return [...announcementItems, ...releaseItems, ...staticSearchItems];
   }, []);
 
   const results = useMemo(() => {
@@ -336,19 +331,19 @@ export default function App() {
     });
   }, [search, searchItems]);
 
-const filteredJournalEntries = useMemo(() => {
-  const query = normalize(search);
+  const filteredJournalEntries = useMemo(() => {
+    const query = normalize(search);
 
-  if (!query) return journalEntries;
+    if (!query) return journalEntries;
 
-  return journalEntries.filter((entry) => {
-    const haystack = normalize(
-      `${entry.date} ${entry.title} ${entry.artist} ${entry.text} ${entry.catalog || ""} ${entry.format || ""}`,
-    );
+    return journalEntries.filter((entry) => {
+      const haystack = normalize(
+        `${entry.date} ${entry.title} ${entry.artist} ${entry.text} ${entry.catalog || ""} ${entry.format || ""}`,
+      );
 
-    return haystack.includes(query);
-  });
-}, [search]);
+      return haystack.includes(query);
+    });
+  }, [search]);
 
   return (
     <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
@@ -429,8 +424,8 @@ const filteredJournalEntries = useMemo(() => {
                 </div>
               ) : (
                 <p className="text-[15px] leading-snug">
-                  no results. try “éliane,” “radigue,” “w0rmw00d,” “plr 000,”
-                  or “catalog.”
+                  no results. try “éliane,” “radigue,” “w0rmw00d,” “launch,”
+                  “plr 000,” or “catalog.”
                 </p>
               )}
             </div>
@@ -441,13 +436,16 @@ const filteredJournalEntries = useMemo(() => {
           id="journal"
           className="mb-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-3"
         >
-          {filteredReleases.map((release) => (
-            <article key={entry.catalog} className="text-[15px] leading-snug">
+          {filteredJournalEntries.map((entry) => (
+            <article
+              key={`${entry.date}-${entry.title}`}
+              className="text-[15px] leading-snug"
+            >
               <p className="mb-2 tabular-nums">{entry.date}</p>
 
               <h2 className="mb-2 text-[18px] font-bold leading-tight">
                 <a
-                  href="/catalog"
+                  href={entry.href}
                   className="underline decoration-transparent underline-offset-4 hover:decoration-current"
                 >
                   {entry.title}
@@ -470,12 +468,12 @@ const filteredJournalEntries = useMemo(() => {
 
               <div className="flex justify-between border-t border-black/40 pt-2 text-[13px]">
                 <span>{entry.format}</span>
-                <span>{entry.catalog}</span>
+                {entry.catalog && <span>{entry.catalog}</span>}
               </div>
             </article>
           ))}
 
-          {filteredReleases.length === 0 && (
+          {filteredJournalEntries.length === 0 && (
             <div className="text-[15px] leading-snug md:col-span-3">
               <p className="font-bold">no journal entries found.</p>
               <p>clear the search to see all entries.</p>
@@ -513,4 +511,22 @@ const filteredJournalEntries = useMemo(() => {
       </div>
     </main>
   );
+}
+
+export default function App() {
+  const path = window.location.pathname;
+
+  if (path === "/catalog") {
+    return <CatalogPage />;
+  }
+
+  if (path === "/radio") {
+    return <ComingSoonPage pageTitle="radio" />;
+  }
+
+  if (path === "/artists") {
+    return <ComingSoonPage pageTitle="artists" />;
+  }
+
+  return <HomePage />;
 }
