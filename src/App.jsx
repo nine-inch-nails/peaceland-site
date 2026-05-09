@@ -4,7 +4,7 @@ const nav = ["journal", "catalog", "radio", "artists", "about"];
 
 const journal = [
   {
-    date: 09.05.2026",
+    date: "09.05.2026",
     title: "Pour Éliane Radigue",
     artist: "w0rmw00d",
     image: "pour-eliane.png",
