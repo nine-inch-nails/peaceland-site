@@ -93,8 +93,7 @@ function Header() {
         <div className="absolute inset-0 bg-white/10" />
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="banner-ink text-center leading-[0.9] tracking-tight">
-          </div>
+          <div className="banner-ink text-center leading-[0.9] tracking-tight" />
         </div>
       </div>
 
@@ -129,9 +128,7 @@ function Footer() {
           {["bandcamp", "youtube", "instagram", "email"].map((item) => (
             <a
               key={item}
-              href={
-                item === "email" ? "mailto:hello@peacelandrecords.com" : "#"
-              }
+              href={item === "email" ? "mailto:hello@peacelandrecords.com" : "#"}
               className="underline decoration-transparent underline-offset-4 hover:decoration-current"
             >
               {item}
@@ -311,8 +308,8 @@ export default function App() {
                 </div>
               ) : (
                 <p className="text-[15px] leading-snug">
-                  no results. try “pecas,” “radio,” “tokyo,” “physical,” or
-                  “saib.”
+                  no results. try “launch,” “radio,” “tokyo,” “physical,” or
+                  “about.”
                 </p>
               )}
             </div>
