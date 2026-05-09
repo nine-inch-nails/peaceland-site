@@ -26,6 +26,27 @@ const releases = [
   },
 ];
 
+const journalAnnouncements = [
+  {
+    date: "09.05.2026",
+    title: "PeaceLand Records Launch",
+    artist: "w0rmw00d",
+    image: "/peaceland-logo.png",
+    text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST.",
+    href: "#journal",
+    format: "Announcement",
+    catalog: "",
+  },
+];
+
+const journalEntries = [
+  ...journalAnnouncements,
+  ...releases.map((release) => ({
+    ...release,
+    href: "/catalog",
+  })),
+];
+
 const staticSearchItems = [
   {
     type: "page",
@@ -315,19 +336,19 @@ export default function App() {
     });
   }, [search, searchItems]);
 
-  const filteredReleases = useMemo(() => {
-    const query = normalize(search);
+const filteredJournalEntries = useMemo(() => {
+  const query = normalize(search);
 
-    if (!query) return releases;
+  if (!query) return journalEntries;
 
-    return releases.filter((release) => {
-      const haystack = normalize(
-        `${release.date} ${release.title} ${release.artist} ${release.text} ${release.catalog} ${release.format}`,
-      );
+  return journalEntries.filter((entry) => {
+    const haystack = normalize(
+      `${entry.date} ${entry.title} ${entry.artist} ${entry.text} ${entry.catalog || ""} ${entry.format || ""}`,
+    );
 
-      return haystack.includes(query);
-    });
-  }, [search]);
+    return haystack.includes(query);
+  });
+}, [search]);
 
   return (
     <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
@@ -421,35 +442,35 @@ export default function App() {
           className="mb-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-3"
         >
           {filteredReleases.map((release) => (
-            <article key={release.catalog} className="text-[15px] leading-snug">
-              <p className="mb-2 tabular-nums">{release.date}</p>
+            <article key={entry.catalog} className="text-[15px] leading-snug">
+              <p className="mb-2 tabular-nums">{entry.date}</p>
 
               <h2 className="mb-2 text-[18px] font-bold leading-tight">
                 <a
                   href="/catalog"
                   className="underline decoration-transparent underline-offset-4 hover:decoration-current"
                 >
-                  {release.title}
+                  {entry.title}
                 </a>
               </h2>
 
               <p className="mb-3 text-[14px] uppercase tracking-[0.12em]">
-                {release.artist}
+                {entry.artist}
               </p>
 
-              <p className="mb-5">{release.text}</p>
+              <p className="mb-5">{entry.text}</p>
 
               <div className="mb-3 aspect-[4/3] w-full overflow-hidden bg-black/10">
                 <img
-                  src={release.image}
-                  alt={`${release.artist} – ${release.title}`}
+                  src={entry.image}
+                  alt={`${entry.artist} – ${entry.title}`}
                   className="h-full w-full object-cover"
                 />
               </div>
 
               <div className="flex justify-between border-t border-black/40 pt-2 text-[13px]">
-                <span>{release.format}</span>
-                <span>{release.catalog}</span>
+                <span>{entry.format}</span>
+                <span>{entry.catalog}</span>
               </div>
             </article>
           ))}
