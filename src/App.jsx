@@ -31,7 +31,7 @@ const journalAnnouncements = [
     date: "09.05.2026",
     title: "PeaceLand Records Launch",
     artist: "w0rmw00d",
-    image: "/peaceland-logo.png",
+    image: "mondrian grey scale.png",
     text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST.",
     href: "#journal",
     format: "Announcement",
