@@ -4,25 +4,11 @@ const nav = ["journal", "catalog", "radio", "artists", "about"];
 
 const journal = [
   {
-    date: "01.06.2026",
-    title: "Beautiful",
-    artist: "Pecas",
-    image: "/pecas-release.png",
-    text: "On “Beautiful,” Pecas captures the strange gravity of desire: the feeling of being fully in someone’s hands, even when you know it might undo you. Moving between Spanish and English, the song folds pleading vocals, devotional repetition, and a neo-soul/R&B sensibility into something intimate and magnetic.",
-  },
-  {
-    date: "15.06.2026",
-    title: "Novo Amor | Jupiter Jazz",
-    artist: "Saib",
-    image: "/saib-release.png",
-    text: "Saib returns with a standalone EP that captures the warmth, swing, and melodic sensitivity that have made his music feel instantly recognizable. Across “Novo Amor” and “Jupiter Jazz,” he moves between romance and atmosphere, grounding breezy jazz-inflected grooves in the tactile language of beat music.",
-  },
-  {
-    date: "30.06.2026",
-    title: "The Killing of Dante East Vol. 1",
-    artist: "AshTreJinkins",
-    image: "/ashtre-release.png",
-    text: "Dust loops haunt the shop. Green light hums through every beat. Dante wakes again. AshTre scores The Killing of Dante East.",
+    date: "09.05.2026",
+    title: "PeaceLand Records Launch",
+    artist: "w0rmw00d",
+    image: 
+    text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST."
   },
 ];
 
