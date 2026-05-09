@@ -1,9 +1,32 @@
 @import "tailwindcss";
 
 html {
-  background: #f4f1e8;
+  background: #eeeeea;
 }
 
 body {
   margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  background: #eeeeea;
+  color: #171717;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  letter-spacing: -0.025em;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  filter: saturate(0.82) contrast(0.92);
+}
+
+.banner-ink {
+  color: rgba(20, 20, 20, 0.68);
+  text-shadow: 0 0 0.4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.03em;
 }
