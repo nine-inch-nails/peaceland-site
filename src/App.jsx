@@ -7,7 +7,7 @@ const journal = [
     date: "09.05.2026",
     title: "PeaceLand Records Launch",
     artist: "w0rmw00d",
-    image: 
+    image: ,
     text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST."
   },
 ];
