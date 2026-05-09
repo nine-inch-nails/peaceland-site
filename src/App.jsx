@@ -9,7 +9,7 @@ const pressReleases = [
     date: "09.05.2026",
     title: "PeaceLand Records Launch",
     artist: "PeaceLand Records",
-    image: "mondrian grey scale.png",
+    image: "/mondrian%20grey%20scale.png",
     href: "/press/peaceland-records-launch",
     format: "Press Release",
     text: "PeaceLand Records announces its launch as a small, artist-first independent label built around deep listening, physical culture, direct-to-fan relationships, and cultural exchange between California, Tokyo, and the global underground.",
