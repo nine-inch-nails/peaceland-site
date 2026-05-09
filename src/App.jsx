@@ -1,6 +1,37 @@
 import React, { useMemo, useState } from "react";
 
+const contactEmail = "peacelandrecords415@gmail.com";
+
 const nav = ["journal", "catalog", "radio", "artists", "about"];
+
+const pressReleases = [
+  {
+    date: "09.05.2026",
+    title: "PeaceLand Records Launch",
+    artist: "PeaceLand Records",
+    image: "mondrian grey scale.png",
+    href: "/press/peaceland-records-launch",
+    format: "Press Release",
+    text: "PeaceLand Records announces its launch as a small, artist-first independent label built around deep listening, physical culture, direct-to-fan relationships, and cultural exchange between California, Tokyo, and the global underground.",
+    longText: [
+      "PeaceLand Records announces its launch as a small, artist-first independent label built around deep listening, physical culture, direct-to-fan relationships, and cultural exchange between California, Tokyo, and the global underground.",
+      "The label begins with a simple belief: music deserves more than being uploaded, scrolled past, and forgotten.",
+      "PeaceLand exists to give singular artists a world around their music. Not just distribution. Not just a logo. Not just another post in the feed. The label is built to support the full life of a release: narrative, design, physical editions, community, direct fan relationships, live experiences, cultural placement, and the slower work of helping music find the people who will truly care for it.",
+      "At the center of PeaceLand is the phrase LISTEN FIRST. It is both a slogan and a way of moving. Listen before speaking. Listen before deciding what something is. Listen deeply enough that the music tells you what it needs.",
+      "PeaceLand Records is not built for scale at any cost. It is not a major-label imitation, a playlist company, a content farm, or a fake-viral marketing machine. It is a home for music that feels human, soulful, experimental, intentional, and difficult to place. The sound can move through beat music, ambient music, left-field electronic work, jazz-adjacent forms, sample-based records, experimental pop, quiet records, loud records, private worlds, and strange songs that do not fit cleanly into a genre.",
+      "The genre matters less than the feeling. The music has to have a pulse. It has to have a point of view.",
+      "PeaceLand believes in records as worlds. In songs as places. In artists as people with histories, contradictions, obsessions, and futures. A release should feel like more than a file on a platform. It should have a room around it. A story. A physical trace. A sound system. A flyer on a wall. A record on the table. A tape in the bag. A liner note. A late-night email. A friend telling another friend, “you need to hear this.”",
+      "PeaceLand exists to build those rooms.",
+      "Rooted in California and open to everywhere, the label also imagines itself as a cultural bridge between California, Tokyo, and the wider underground. That bridge is not aesthetic decoration. It is a way of thinking about how music actually travels: through artists, record shops, listening bars, DJs, venues, writers, friends, and fans who still care enough to pay attention.",
+      "In practice, PeaceLand will begin carefully. Small roster. High taste. Direct relationships. Releases that feel detailed enough to archive and alive enough to hit the street. The label will focus on artist-friendly release structures, transparent rights, meaningful physical objects, intentional design, editorial framing, and long-term trust.",
+      "PeaceLand’s first release, PLR 000: Pour Éliane Radigue by w0rmw00d, sets the tone for the label’s opening gesture. Created as an homage to Éliane Radigue, the EP reimagines two of her works through loop-based edits, Neutone VSTs, FX pedals, and subtle processing. It is a quiet act of remembrance; a release shaped by patience, resonance, and gratitude. As an opening catalog number, Pour Éliane Radigue reflects the label’s interest in music as attention, not spectacle.",
+      "Alongside its catalog, PeaceLand will gradually develop a small media arm: PeaceLand Radio, mix series, artist notes, studio visits, record pulls, live sessions, liner note essays, and California ⇄ Tokyo dispatches. The point is not content for content’s sake. It is documentation, taste-making, and world-building. A label should not only release music; it should help preserve the conditions around the music.",
+      "PeaceLand is anti-hype and pro-depth. It will avoid staged discovery narratives, fake grassroots marketing, manipulative scarcity, and the machinery that turns artists into content pipelines. Instead, it will move through real listening parties, real artist notes, real DJ support, real radio, real record-store relationships, real newsletters, real physical objects, and real community.",
+      "The work is simple, but not small: make music feel less disposable. Give singular artists a world around their work. Press things into memory. Build community without pretending it is marketing. Move carefully, show up loudly, and leave behind a catalog that still feels alive years from now.",
+      "LISTEN FIRST.",
+    ],
+  },
+];
 
 const releases = [
   {
@@ -26,21 +57,8 @@ const releases = [
   },
 ];
 
-const journalAnnouncements = [
-  {
-    date: "09.05.2026",
-    title: "PeaceLand Records Launch",
-    artist: "w0rmw00d",
-    image: "mondrian grey scale.png",
-    text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST.",
-    href: "#journal",
-    format: "Announcement",
-    catalog: "",
-  },
-];
-
 const journalEntries = [
-  ...journalAnnouncements,
+  ...pressReleases,
   ...releases.map((release) => ({
     ...release,
     href: "/catalog",
@@ -166,7 +184,7 @@ function Footer() {
                 key={item}
                 href={
                   item === "email"
-                    ? "mailto:hello@peacelandrecords.com"
+                    ? `mailto:${contactEmail}`
                     : item === "subvert"
                     ? "https://www.subvert.fm/peaceland/pour-eliane-plr-000"
                     : "#"
@@ -209,6 +227,72 @@ function ComingSoonPage({ pageTitle }) {
             </a>
           </div>
         </section>
+
+        <Footer />
+      </div>
+    </main>
+  );
+}
+
+function PressReleasePage() {
+  const press = pressReleases[0];
+
+  return (
+    <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
+      <div className="mx-auto max-w-[1180px] px-5 py-7">
+        <Header />
+
+        <article className="mb-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <aside className="text-[15px] leading-snug">
+            <p className="mb-2 tabular-nums">{press.date}</p>
+            <p className="font-bold">{press.format}</p>
+            <p>{press.artist}</p>
+
+            <a
+              href={`mailto:${contactEmail}`}
+              className="mt-5 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+            >
+              contact
+            </a>
+          </aside>
+
+          <div className="md:col-span-2">
+            <h1 className="mb-5 text-[28px] font-bold leading-tight sm:text-[34px]">
+              {press.title}
+            </h1>
+
+            <p className="mb-8 max-w-3xl text-[20px] leading-snug">
+              PeaceLand Records launches with a simple belief: LISTEN FIRST.
+            </p>
+
+            <div className="mb-8 w-full overflow-hidden bg-black/10">
+              <img
+                src={press.image}
+                alt={press.title}
+                className="w-full object-cover"
+              />
+            </div>
+
+            <div className="space-y-5 text-[16px] leading-snug">
+              {press.longText.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="mt-8 border-t-2 border-black pt-5 text-[15px] leading-snug">
+              <p className="font-bold">PeaceLand Records</p>
+              <p>San Francisco / Tokyo / Global Underground</p>
+              <p>
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="underline underline-offset-4"
+                >
+                  {contactEmail}
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
 
         <Footer />
       </div>
@@ -306,15 +390,15 @@ function HomePage() {
       href: "/#journal",
     }));
 
-    const announcementItems = journalAnnouncements.map((announcement) => ({
+    const pressItems = pressReleases.map((press) => ({
       type: "journal",
-      title: announcement.title,
-      subtitle: announcement.artist,
-      text: `${announcement.text} ${announcement.format}`,
-      href: "/#journal",
+      title: press.title,
+      subtitle: press.artist,
+      text: `${press.text} ${press.longText.join(" ")} ${press.format}`,
+      href: press.href,
     }));
 
-    return [...announcementItems, ...releaseItems, ...staticSearchItems];
+    return [...pressItems, ...releaseItems, ...staticSearchItems];
   }, []);
 
   const results = useMemo(() => {
@@ -518,6 +602,10 @@ export default function App() {
 
   if (path === "/catalog") {
     return <CatalogPage />;
+  }
+
+  if (path === "/press/peaceland-records-launch") {
+    return <PressReleasePage />;
   }
 
   if (path === "/radio") {
