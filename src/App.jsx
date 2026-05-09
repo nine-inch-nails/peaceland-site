@@ -4,7 +4,17 @@ const nav = ["journal", "catalog", "radio", "artists", "about"];
 
 const journal = [
   {
-    date: "09.05.2026",
+    date: 09.05.2026",
+    title: "Pour Éliane Radigue",
+    artist: "w0rmw00d",
+    image: "pour-eliane.png",
+    text: "Created as an homage to Éliane Radigue, Pour Éliane reimagines two of her works through a personal and contemporary lens. Rather than treating the originals as fixed objects, w0rmw00d approaches them as living materials; sources of resonance, patience, and transformation.",
+  },
+    
+    
+    
+    
+    date: "08.05.2026",
     title: "PeaceLand Records Launch",
     artist: "w0rmw00d",
     image: "mondrian grey scale.png",
