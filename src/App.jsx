@@ -8,7 +8,7 @@ const journal = [
     title: "PeaceLand Records Launch",
     artist: "w0rmw00d",
     image: ,
-    text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST."
+    text: "I'm excited to announce the launch of PeaceLand Records. Lots in store, lots of works and things coming soon. LISTEN FIRST.",
   },
 ];
 
