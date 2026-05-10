@@ -506,13 +506,12 @@ function RadioPage() {
 
         <section className="mb-10 grid grid-cols-1 gap-8 border-b-2 border-black pb-8 md:grid-cols-3">
           <div className="text-[15px] font-bold leading-snug lowercase">
-            <p>radio</p>
-            <p>Radio Al Hara archive</p>
+            <p>Radio Al Haara archive</p>
           </div>
 
           <div className="text-[18px] leading-snug md:col-span-2">
             <p>
-              A running archive of Human Error transmissions for Radio Al Hara:
+              A running archive of Human Error transmissions for Radio Al Haara:
               beat tapes, tribute sets, dusty jazz, private moods, and records
               pulled for late-night listening.
             </p>
