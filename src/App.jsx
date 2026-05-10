@@ -34,27 +34,7 @@ const pressReleases = [
 ];
 
 const releases = [
-  {
-    date: "09.05.2026",
-    title: "Pour Éliane Radigue",
-    artist: "w0rmw00d",
-    catalog: "PLR 000",
-    format: "Digital Download",
-    image: "/pour-eliane.png",
-    tracks: ["islas", "anologique"],
-    subvert: "https://www.subvert.fm/peaceland/pour-eliane-plr-000",
-    credits: "w0rmw00d",
-    text: "Created as an homage to Éliane Radigue, Pour Éliane reimagines two of her works through a personal and contemporary lens. Rather than treating the originals as fixed objects, w0rmw00d approaches them as living materials; sources of resonance, patience, and transformation.",
-    longText: [
-      "Pour Éliane is a quiet act of remembrance; a personal homage to Éliane Radigue, whose work altered the course of electronic and experimental music with uncommon patience, humility, and depth.",
-      "Across the EP, w0rmw00d works from fragments of Radigue’s L’Île re-sonante, drawing from its source material to create two loop-based pieces shaped through Neutone VSTs, FX pedals, and subtle processing. Rather than pulling the work away from its origin, these edits remain close to the material itself; stretching, circling, and refracting its tones through contemporary tools. What emerges is neither cover nor quotation in the traditional sense, but a gesture of gratitude toward an artist whose music taught generations how to hear slowness, stillness, and interior movement.",
-      "Radigue’s creative path began in the orbit of musique concrète, the post-war French movement associated with Pierre Schaeffer and Pierre Henry, where recorded sound itself became compositional material. Tape, feedback, room tone, machinery, resonance, and accident were no longer peripheral; they became music. From these beginnings, Radigue developed a language entirely her own. Her early work with tape and feedback eventually led to the ARP 2500 synthesizer, through which she created vast, slowly unfolding electronic works of remarkable subtlety. Later, her practice expanded into acoustic composition, most notably through the Occam Ocean series.",
-      "Her music asks for attention rather than spectacle. It does not impose itself. It reveals itself over time.",
-      "Pour Éliane follows that spirit. The EP moves with restraint, allowing small shifts in tone, texture, and pressure to become the central drama. Sound is approached as something almost physical: a field, a surface, a breath, a current. In making these pieces, w0rmw00d sought not to imitate Radigue, but to honor the freedom she made possible; the permission to work slowly, to listen deeply, and to trust the emotional force of minimal change.",
-      "Released in the wake of Radigue’s passing, Pour Éliane is offered with deep respect for her life, her work, and the immense space she opened for artists working with sound.",
-      "À rien ne peut m'arrêter maintenant",
-    ],
-  },
+
 ];
 
 const journalEntries = [
