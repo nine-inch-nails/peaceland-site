@@ -60,6 +60,90 @@ const releases = [
   },
 ];
 
+const radioMixes = [
+  {
+    date: "11.24.2025",
+    title: "Human Error: BluntsGiving Show",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/cCH4DXclqoZzfHcyUm",
+    image: "/bluntsgiving%20show.png",
+    synopsis:
+      "A smoke-thick holiday broadcast moving through dusty loops, left-field beat music, soul fragments, and late-night selections.",
+  },
+  {
+    date: "12.24.2025",
+    title: "Happy KNXmas",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/w0hNscmRMmiLodk6bi",
+    image: "/Knxmas%20show.png",
+    synopsis:
+      "A winter dedication to the swing, looseness, and emotional grammar of the LA beat scene, with KNXwledge energy at the center.",
+  },
+  {
+    date: "01.28.2026",
+    title: "New Year Mix",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/Z2sP7uxckd5DEZVLqR",
+    image: "/new%20year%20show.png",
+    synopsis:
+      "A reflective turn-of-year session of jazz textures, soft loops, private moods, and records for beginning again.",
+  },
+  {
+    date: "02.07.2026",
+    title: "Dilla Days | Nujabes Nights",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/EWU66sn8UTdB7MiiAL",
+    image: "/nujabes%3Adilla.png",
+    synopsis:
+      "A tribute to two architects of feeling in beat music: Dilla’s drum language and Nujabes’ melodic, drifting sense of memory.",
+  },
+  {
+    date: "02.25.2026",
+    title: "Human Error: Pour Éliane",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/ign93075Oqdz2o3Rvn",
+    image: "/radigue.png",
+    synopsis:
+      "A slow, patient transmission around Éliane Radigue, resonance, stillness, and the emotional force of small changes in sound.",
+  },
+  {
+    date: "03.27.2026",
+    title: "Human Error: Beats to Kill Dante East To Vol. 1",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/auMPoknfgEDaFSfcLC",
+    image: "/ashtre-release.png",
+    synopsis:
+      "A score-like beattape transmission for The Killing of Dante East; dusty loops, strange tension, and comic-book atmosphere.",
+  },
+  {
+    date: "04.04.2026",
+    title: "Human Error: Ras G 404 Day Tribute",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/UPaa3koYwgDQNTb4RS",
+    image: "/404%20day.png",
+    synopsis:
+      "A 404 Day tribute to Ras G and the Afrikan Space Program: cosmic debris, SP-404 pressure, raw rhythm, and low-end memory.",
+  },
+  {
+    date: "04.20.2026",
+    title: "Human Error: 420 BBs",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/AYVwc7XcXsTV2eqaox",
+    image: "/420.png",
+    synopsis:
+      "A hazy 420 transmission of smoked-out beat music, low-slung loops, strange grooves, and altered-room selections.",
+  },
+  {
+    date: "04.22.2026",
+    title: "Human Error: Madlib Jazz",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/1Vd5N3uO0XDaYd6uCQ",
+    image: "/madlib%20jazz.png",
+    synopsis:
+      "A trip through Madlib’s jazz universe: cracked swing, deep crates, aliases, fragments, and the looseness that turns records into language.",
+  },
+];
+
 const journalEntries = [
   ...pressReleases,
   ...releases.map((release) => ({
@@ -93,8 +177,8 @@ const staticSearchItems = [
   {
     type: "page",
     title: "radio",
-    subtitle: "coming soon",
-    text: "Mixes, record pulls, studio notes, live sessions, and California ⇄ Tokyo dispatches.",
+    subtitle: "PeaceLand Radio archive",
+    text: "Mixes, record pulls, studio notes, live sessions, Radio Al Hara transmissions, and California ⇄ Tokyo dispatches.",
     href: "/radio",
   },
 ];
@@ -414,6 +498,79 @@ function CatalogPage() {
   );
 }
 
+function RadioPage() {
+  return (
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
+      <div className="mx-auto max-w-[1180px] px-5 py-7">
+        <Header />
+
+        <section className="mb-10 grid grid-cols-1 gap-8 border-b-2 border-black pb-8 md:grid-cols-3">
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>radio</p>
+            <p>Radio Al Hara archive</p>
+          </div>
+
+          <div className="text-[18px] leading-snug md:col-span-2">
+            <p>
+              A running archive of Human Error transmissions for Radio Al Hara:
+              beat tapes, tribute sets, dusty jazz, private moods, and records
+              pulled for late-night listening.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-14 border-t-2 border-black">
+          {radioMixes.map((mix, index) => (
+            <article
+              key={mix.url}
+              className="grid grid-cols-1 gap-4 border-b border-black/40 py-5 text-[15px] leading-snug md:grid-cols-[70px_120px_130px_1fr_120px]"
+            >
+              <p className="tabular-nums opacity-70">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+
+              <div className="h-[90px] w-[90px] overflow-hidden bg-black/10">
+                <img
+                  src={mix.image}
+                  alt={mix.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <p className="tabular-nums">{mix.date}</p>
+
+              <div>
+                <h1 className="text-[18px] font-bold leading-tight">
+                  {mix.title}
+                </h1>
+
+                <p className="mt-1 text-[14px] uppercase tracking-[0.12em]">
+                  {mix.artist}
+                </p>
+
+                <p className="mt-3 max-w-3xl">{mix.synopsis}</p>
+              </div>
+
+              <div className="md:text-right">
+                <a
+                  href={mix.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+                >
+                  soundcloud
+                </a>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <Footer />
+      </div>
+    </main>
+  );
+}
+
 function HomePage() {
   const [search, setSearch] = useState("");
 
@@ -434,7 +591,15 @@ function HomePage() {
       href: press.href,
     }));
 
-    return [...pressItems, ...releaseItems, ...staticSearchItems];
+    const radioItems = radioMixes.map((mix) => ({
+      type: "radio",
+      title: mix.title,
+      subtitle: mix.artist,
+      text: `${mix.date} ${mix.synopsis}`,
+      href: "/radio",
+    }));
+
+    return [...pressItems, ...releaseItems, ...radioItems, ...staticSearchItems];
   }, []);
 
   const results = useMemo(() => {
@@ -544,7 +709,7 @@ function HomePage() {
                 </div>
               ) : (
                 <p className="text-[15px] leading-snug">
-                  no results. try “éliane,” “radigue,” “w0rmw00d,” “launch,”
+                  no results. try “éliane,” “madlib,” “ras g,” “radio,” “launch,”
                   “plr 000,” or “catalog.”
                 </p>
               )}
@@ -645,7 +810,7 @@ export default function App() {
   }
 
   if (path === "/radio") {
-    return <ComingSoonPage pageTitle="radio" />;
+    return <RadioPage />;
   }
 
   if (path === "/artists") {
