@@ -68,7 +68,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/cCH4DXclqoZzfHcyUm",
     image: "/bluntsgiving%20show.png",
     synopsis:
-      "A smoke-thick holiday broadcast moving through dusty loops, left-field beat music, soul fragments, and late-night selections.",
+      "Happy BluntsGiving",
   },
   {
     date: "12.24.2025",
@@ -104,7 +104,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/ign93075Oqdz2o3Rvn",
     image: "/radigue.png",
     synopsis:
-      "A slow, patient transmission around Éliane Radigue, resonance, stillness, and the emotional force of small changes in sound.",
+      "Rest in Peace to the one and only, Éliane Radigue. A mix for all the feelings.",
   },
   {
     date: "03.27.2026",
@@ -113,7 +113,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/auMPoknfgEDaFSfcLC",
     image: "/ashtre-release.png",
     synopsis:
-      "A score-like beattape transmission for The Killing of Dante East; dusty loops, strange tension, and comic-book atmosphere.",
+      "A beattape collection scoring the upcoming graphic novel, 'The Killing of Dante East'.",
   },
   {
     date: "04.04.2026",
