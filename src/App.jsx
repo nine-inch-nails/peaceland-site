@@ -63,7 +63,7 @@ const releases = [
 const radioMixes = [
   {
     date: "11.24.2025",
-    title: "Human Error: BluntsGiving Show",
+    title: "BluntsGiving Show",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/cCH4DXclqoZzfHcyUm",
     image: "/bluntsgiving%20show.png",
@@ -99,7 +99,7 @@ const radioMixes = [
   },
   {
     date: "02.25.2026",
-    title: "Human Error: Pour Éliane",
+    title: "Pour Éliane",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/ign93075Oqdz2o3Rvn",
     image: "/radigue.png",
@@ -108,7 +108,7 @@ const radioMixes = [
   },
   {
     date: "03.27.2026",
-    title: "Human Error: Beats to Kill Dante East To Vol. 1",
+    title: "Beats to Kill Dante East To Vol. 0",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/auMPoknfgEDaFSfcLC",
     image: "/ashtre-release.png",
@@ -117,7 +117,7 @@ const radioMixes = [
   },
   {
     date: "04.04.2026",
-    title: "Human Error: Ras G 404 Day Tribute",
+    title: "Ras G 404 Day Tribute",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/UPaa3koYwgDQNTb4RS",
     image: "/404%20day.png",
@@ -126,7 +126,7 @@ const radioMixes = [
   },
   {
     date: "04.20.2026",
-    title: "Human Error: 420 BBs",
+    title: "Happy 420 BBs",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/AYVwc7XcXsTV2eqaox",
     image: "/420.png",
@@ -135,7 +135,7 @@ const radioMixes = [
   },
   {
     date: "04.22.2026",
-    title: "Human Error: Madlib Jazz",
+    title: "Madlib Jazz",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/1Vd5N3uO0XDaYd6uCQ",
     image: "/madlib%20jazz.png",
@@ -178,7 +178,7 @@ const staticSearchItems = [
     type: "page",
     title: "radio",
     subtitle: "PeaceLand Radio archive",
-    text: "Mixes, record pulls, studio notes, live sessions, Radio Al Hara transmissions, and California ⇄ Tokyo dispatches.",
+    text: "Mixes, record pulls, studio notes, live sessions, Radio Al Haara transmissions, and California ⇄ Tokyo dispatches.",
     href: "/radio",
   },
 ];
