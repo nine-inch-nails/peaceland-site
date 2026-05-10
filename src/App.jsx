@@ -1,12 +1,15 @@
 import React, { useMemo, useState } from "react";
 
 const contactEmail = "peacelandrecords415@gmail.com";
+const subvertUrl = "https://www.subvert.fm/peaceland/pour-eliane-plr-000";
+const bandcampUrl = "https://peaceland.bandcamp.com/";
+const instagramUrl = "https://www.instagram.com/peacelandrecords/";
 
 const nav = ["journal", "catalog", "radio", "artists", "about"];
 
 const pressReleases = [
   {
-    date: "09.05.2026",
+    date: "05.11.2026",
     title: "PeaceLand Records Launch",
     artist: "PeaceLand Records",
     image: "/mondrian%20grey%20scale.png",
@@ -34,7 +37,27 @@ const pressReleases = [
 ];
 
 const releases = [
-
+  {
+    date: "05.11.2026",
+    title: "Pour Éliane Radigue",
+    artist: "w0rmw00d",
+    catalog: "PLR 000",
+    format: "Digital Download",
+    image: "/pour-eliane.png",
+    tracks: ["islas", "anologique"],
+    subvert: subvertUrl,
+    credits: "w0rmw00d",
+    text: "Created as an homage to Éliane Radigue, Pour Éliane reimagines two of her works through a personal and contemporary lens. Rather than treating the originals as fixed objects, w0rmw00d approaches them as living materials; sources of resonance, patience, and transformation.",
+    longText: [
+      "Pour Éliane is a quiet act of remembrance; a personal homage to Éliane Radigue, whose work altered the course of electronic and experimental music with uncommon patience, humility, and depth.",
+      "Across the EP, w0rmw00d works from fragments of Radigue’s L’Île re-sonante, drawing from its source material to create two loop-based pieces shaped through Neutone VSTs, FX pedals, and subtle processing. Rather than pulling the work away from its origin, these edits remain close to the material itself; stretching, circling, and refracting its tones through contemporary tools. What emerges is neither cover nor quotation in the traditional sense, but a gesture of gratitude toward an artist whose music taught generations how to hear slowness, stillness, and interior movement.",
+      "Radigue’s creative path began in the orbit of musique concrète, the post-war French movement associated with Pierre Schaeffer and Pierre Henry, where recorded sound itself became compositional material. Tape, feedback, room tone, machinery, resonance, and accident were no longer peripheral; they became music. From these beginnings, Radigue developed a language entirely her own. Her early work with tape and feedback eventually led to the ARP 2500 synthesizer, through which she created vast, slowly unfolding electronic works of remarkable subtlety. Later, her practice expanded into acoustic composition, most notably through the Occam Ocean series.",
+      "Her music asks for attention rather than spectacle. It does not impose itself. It reveals itself over time.",
+      "Pour Éliane follows that spirit. The EP moves with restraint, allowing small shifts in tone, texture, and pressure to become the central drama. Sound is approached as something almost physical: a field, a surface, a breath, a current. In making these pieces, w0rmw00d sought not to imitate Radigue, but to honor the freedom she made possible; the permission to work slowly, to listen deeply, and to trust the emotional force of minimal change.",
+      "Released in the wake of Radigue’s passing, Pour Éliane is offered with deep respect for her life, her work, and the immense space she opened for artists working with sound.",
+      "À rien ne peut m'arrêter maintenant",
+    ],
+  },
 ];
 
 const journalEntries = [
@@ -158,23 +181,25 @@ function Footer() {
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
-          {["subvert", "bandcamp", "youtube", "instagram", "email"].map(
-            (item) => (
-              <a
-                key={item}
-                href={
-                  item === "email"
-                    ? `mailto:${contactEmail}`
-                    : item === "subvert"
-                    ? "https://www.subvert.fm/peaceland/pour-eliane-plr-000"
-                    : "#"
-                }
-                className="underline decoration-transparent underline-offset-4 hover:decoration-current"
-              >
-                {item}
-              </a>
-            ),
-          )}
+          {["subvert", "bandcamp", "instagram", "email"].map((item) => (
+            <a
+              key={item}
+              href={
+                item === "email"
+                  ? `mailto:${contactEmail}`
+                  : item === "subvert"
+                  ? subvertUrl
+                  : item === "bandcamp"
+                  ? bandcampUrl
+                  : item === "instagram"
+                  ? instagramUrl
+                  : "#"
+              }
+              className="underline decoration-transparent underline-offset-4 hover:decoration-current"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
       </div>
     </footer>
@@ -183,7 +208,7 @@ function Footer() {
 
 function ComingSoonPage({ pageTitle }) {
   return (
-    <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
       <div className="mx-auto max-w-[1180px] px-5 py-7">
         <Header />
 
@@ -218,7 +243,7 @@ function PressReleasePage() {
   const press = pressReleases[0];
 
   return (
-    <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
       <div className="mx-auto max-w-[1180px] px-5 py-7">
         <Header />
 
@@ -229,8 +254,15 @@ function PressReleasePage() {
             <p>{press.artist}</p>
 
             <a
-              href={`mailto:${contactEmail}`}
+              href={subvertUrl}
               className="mt-5 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+            >
+              listen / download
+            </a>
+
+            <a
+              href={`mailto:${contactEmail}`}
+              className="mt-3 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
             >
               contact
             </a>
@@ -246,16 +278,40 @@ function PressReleasePage() {
             </p>
 
             <div className="mb-8 w-full overflow-hidden bg-black/10">
-              <img
-                src={press.image}
-                alt={press.title}
-                className="w-full object-cover"
-              />
+              <a href={subvertUrl}>
+                <img
+                  src={press.image}
+                  alt={press.title}
+                  className="w-full object-cover"
+                />
+              </a>
             </div>
 
             <div className="space-y-5 text-[16px] leading-snug">
-              {press.longText.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+              {press.longText.map((paragraph, index) => (
+                <p key={paragraph}>
+                  {index === 10 ? (
+                    <>
+                      PeaceLand’s first release,{" "}
+                      <a
+                        href={subvertUrl}
+                        className="font-bold underline underline-offset-4"
+                      >
+                        PLR 000: Pour Éliane Radigue by w0rmw00d
+                      </a>
+                      , sets the tone for the label’s opening gesture. Created
+                      as an homage to Éliane Radigue, the EP reimagines two of
+                      her works through loop-based edits, Neutone VSTs, FX
+                      pedals, and subtle processing. It is a quiet act of
+                      remembrance; a release shaped by patience, resonance, and
+                      gratitude. As an opening catalog number, Pour Éliane
+                      Radigue reflects the label’s interest in music as
+                      attention, not spectacle.
+                    </>
+                  ) : (
+                    paragraph
+                  )}
+                </p>
               ))}
             </div>
 
@@ -282,7 +338,7 @@ function PressReleasePage() {
 
 function CatalogPage() {
   return (
-    <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
       <div className="mx-auto max-w-[1180px] px-5 py-7">
         <Header />
 
@@ -410,7 +466,7 @@ function HomePage() {
   }, [search]);
 
   return (
-    <main className="min-h-screen bg-[#eeeeea] text-[#171717] selection:bg-black selection:text-white">
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
       <div className="mx-auto max-w-[1180px] px-5 py-7">
         <Header />
 
