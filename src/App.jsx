@@ -264,7 +264,6 @@ function Footer() {
       >
         <div className="font-bold leading-snug">
           <p>newsletter</p>
-          <p>LISTEN FIRST</p>
         </div>
 
         <div className="md:col-span-2">
@@ -300,17 +299,6 @@ function Footer() {
             />
           </form>
 
-          <p className="mt-3 text-[12px] opacity-60">
-            powered by{" "}
-            <a
-              href="https://buttondown.com/refer/peacelandrecords415"
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4"
-            >
-              buttondown
-            </a>
-          </p>
         </div>
       </section>
 
