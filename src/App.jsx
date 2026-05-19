@@ -63,12 +63,12 @@ const releases = [
 const radioMixes = [
   {
     date: "11.24.2025",
-    title: "BluntsGiving Show",
+    title: "Human Error: BluntsGiving Show",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/cCH4DXclqoZzfHcyUm",
     image: "/bluntsgiving%20show.png",
     synopsis:
-      "Happy BluntsGiving",
+      "A smoke-thick holiday broadcast moving through dusty loops, left-field beat music, soul fragments, and late-night selections.",
   },
   {
     date: "12.24.2025",
@@ -99,25 +99,25 @@ const radioMixes = [
   },
   {
     date: "02.25.2026",
-    title: "Pour Éliane",
+    title: "Human Error: Pour Éliane",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/ign93075Oqdz2o3Rvn",
     image: "/radigue.png",
     synopsis:
-      "Rest in Peace to the one and only, Éliane Radigue. A mix for all the feelings.",
+      "A slow, patient transmission around Éliane Radigue, resonance, stillness, and the emotional force of small changes in sound.",
   },
   {
     date: "03.27.2026",
-    title: "Beats to Kill Dante East To Vol. 0",
+    title: "Human Error: Beats to Kill Dante East To Vol. 1",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/auMPoknfgEDaFSfcLC",
     image: "/ashtre-release.png",
     synopsis:
-      "A beattape collection scoring the upcoming graphic novel, 'The Killing of Dante East'.",
+      "A score-like beattape transmission for The Killing of Dante East; dusty loops, strange tension, and comic-book atmosphere.",
   },
   {
     date: "04.04.2026",
-    title: "Ras G 404 Day Tribute",
+    title: "Human Error: Ras G 404 Day Tribute",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/UPaa3koYwgDQNTb4RS",
     image: "/404%20day.png",
@@ -126,7 +126,7 @@ const radioMixes = [
   },
   {
     date: "04.20.2026",
-    title: "Happy 420 BBs",
+    title: "Human Error: 420 BBs",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/AYVwc7XcXsTV2eqaox",
     image: "/420.png",
@@ -135,7 +135,7 @@ const radioMixes = [
   },
   {
     date: "04.22.2026",
-    title: "Madlib Jazz",
+    title: "Human Error: Madlib Jazz",
     artist: "w0rmw00d",
     url: "https://on.soundcloud.com/1Vd5N3uO0XDaYd6uCQ",
     image: "/madlib%20jazz.png",
@@ -178,7 +178,7 @@ const staticSearchItems = [
     type: "page",
     title: "radio",
     subtitle: "PeaceLand Radio archive",
-    text: "Mixes, record pulls, studio notes, live sessions, Radio Al Haara transmissions, and California ⇄ Tokyo dispatches.",
+    text: "Mixes, record pulls, studio notes, live sessions, Radio Al Hara transmissions, and California ⇄ Tokyo dispatches.",
     href: "/radio",
   },
 ];
@@ -258,6 +258,62 @@ function Footer() {
       id="contact"
       className="border-t-2 border-black py-5 text-[14px] lowercase"
     >
+      <section
+        id="newsletter"
+        className="mb-8 grid grid-cols-1 gap-8 border-b border-black/40 pb-6 md:grid-cols-3"
+      >
+        <div className="font-bold leading-snug">
+          <p>newsletter</p>
+          <p>LISTEN FIRST</p>
+        </div>
+
+        <div className="md:col-span-2">
+          <p className="mb-4 max-w-3xl text-[16px] leading-snug normal-case">
+            Join the PeaceLand mailing list for release notes, radio
+            transmissions, physical editions, artist notes, and occasional
+            dispatches from California, Tokyo, and the global underground.
+          </p>
+
+          <form
+            action="https://buttondown.com/api/emails/embed-subscribe/peacelandrecords415"
+            method="post"
+            target="_blank"
+            className="flex max-w-xl flex-col gap-3 sm:flex-row"
+          >
+            <label htmlFor="bd-email" className="sr-only">
+              Enter your email
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              id="bd-email"
+              required
+              placeholder="email"
+              className="min-w-0 flex-1 border-2 border-black bg-transparent px-3 py-2 text-[14px] lowercase outline-none placeholder:text-black/45"
+            />
+
+            <input
+              type="submit"
+              value="subscribe"
+              className="cursor-pointer border-2 border-black bg-transparent px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+            />
+          </form>
+
+          <p className="mt-3 text-[12px] opacity-60">
+            powered by{" "}
+            <a
+              href="https://buttondown.com/refer/peacelandrecords415"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4"
+            >
+              buttondown
+            </a>
+          </p>
+        </div>
+      </section>
+
       <div className="flex flex-col justify-between gap-5 sm:flex-row">
         <div>
           <p className="font-bold">© PeaceLand Records</p>
@@ -506,12 +562,13 @@ function RadioPage() {
 
         <section className="mb-10 grid grid-cols-1 gap-8 border-b-2 border-black pb-8 md:grid-cols-3">
           <div className="text-[15px] font-bold leading-snug lowercase">
-            <p>Radio Al Haara archive</p>
+            <p>radio</p>
+            <p>Radio Al Hara archive</p>
           </div>
 
           <div className="text-[18px] leading-snug md:col-span-2">
             <p>
-              A running archive of Human Error transmissions for Radio Al Haara:
+              A running archive of Human Error transmissions for Radio Al Hara:
               beat tapes, tribute sets, dusty jazz, private moods, and records
               pulled for late-night listening.
             </p>
