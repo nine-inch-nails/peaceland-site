@@ -156,7 +156,6 @@ const staticSearchItems = [
   {
     type: "page",
     title: "about",
-    subtitle: "LISTEN FIRST / まず聴く",
     text: "PeaceLand Records gives singular artists a world around their music: narrative, design, physical releases, community, direct-to-fan relationships, live experiences, and cultural placement. The sound can move across beat music, ambient, left-field electronic, jazz-adjacent music, sample culture, experimental pop, quiet records, loud records, and any other form that feels human, soulful, experimental, and intentional.",
     href: "/#about",
   },
