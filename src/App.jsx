@@ -11,6 +11,16 @@ const nav = ["journal", "catalog", "radio", "tv", "artists", "about"];
 
 const tvTracks = [
   {
+    title: "analogique",
+    artist: "w0rmw00d",
+    src: "/analogique.mp3",
+  },
+  {
+    title: "islas",
+    artist: "w0rmw00d",
+    src: "/islas.mp3",
+  },
+  {
     title: "Dickin in Dmin",
     artist: "w0rmw00d",
     src: "/dickin-dmin.mp3",
@@ -637,17 +647,19 @@ function RadioPage() {
 
 function TVPage() {
   const audioRef = useRef(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const currentTrack = tvTracks[0];
+  const currentTrack = tvTracks[currentTrackIndex];
 
   useEffect(() => {
     if (!audioRef.current || !isPlaying) return;
 
+    audioRef.current.load();
     audioRef.current.play().catch(() => {
       setIsPlaying(false);
     });
-  }, [isPlaying]);
+  }, [currentTrackIndex, isPlaying]);
 
   function playScore() {
     setIsPlaying(true);
@@ -665,6 +677,10 @@ function TVPage() {
     if (audioRef.current) {
       audioRef.current.pause();
     }
+  }
+
+  function nextTrack() {
+    setCurrentTrackIndex((index) => (index + 1) % tvTracks.length);
   }
 
   return (
@@ -701,7 +717,7 @@ function TVPage() {
         <section className="mb-14 grid grid-cols-1 gap-8 border-t-2 border-black pt-5 md:grid-cols-3">
           <div className="text-[15px] font-bold leading-snug lowercase">
             <p>score</p>
-            <p>01</p>
+            <p>{String(currentTrackIndex + 1).padStart(2, "0")}</p>
           </div>
 
           <div className="md:col-span-2">
@@ -716,7 +732,7 @@ function TVPage() {
             <audio
               ref={audioRef}
               src={currentTrack.src}
-              loop
+              onEnded={nextTrack}
               preload="auto"
             />
 
@@ -738,13 +754,30 @@ function TVPage() {
                   pause score
                 </button>
               )}
+
+              <button
+                type="button"
+                onClick={nextTrack}
+                className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+              >
+                next
+              </button>
             </div>
 
             <div className="mt-6 border-t border-black/40 pt-3 text-[15px] leading-snug">
-              <div className="flex w-full justify-between gap-5 border-b border-black/20 py-2 text-left">
-                <span>01 {currentTrack.title}</span>
-                <span>{currentTrack.artist}</span>
-              </div>
+              {tvTracks.map((track, index) => (
+                <button
+                  key={track.src}
+                  type="button"
+                  onClick={() => setCurrentTrackIndex(index)}
+                  className="flex w-full justify-between gap-5 border-b border-black/20 py-2 text-left hover:bg-black hover:text-[#eeeeea]"
+                >
+                  <span>
+                    {String(index + 1).padStart(2, "0")} {track.title}
+                  </span>
+                  <span>{track.artist}</span>
+                </button>
+              ))}
             </div>
           </div>
         </section>
