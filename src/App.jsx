@@ -1,11 +1,21 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const contactEmail = "peacelandrecords415@gmail.com";
 const subvertUrl = "https://www.subvert.fm/peaceland/pour-eliane-plr-000";
 const bandcampUrl = "https://peaceland.bandcamp.com/";
 const instagramUrl = "https://www.instagram.com/peacelandrecords/";
+const youtubePlaylistEmbed =
+  "https://www.youtube.com/embed/videoseries?list=PLP_sxcXjwdy00C66V8g13L1fntt23f77n&autoplay=1&mute=1&loop=1";
 
-const nav = ["journal", "catalog", "radio", "artists", "about"];
+const nav = ["journal", "catalog", "radio", "tv", "artists", "about"];
+
+const tvTracks = [
+  {
+    title: "Dickin in Dmin",
+    artist: "w0rmw00d",
+    src: "/tv-dickin-dmin.mp3",
+  },
+];
 
 const pressReleases = [
   {
@@ -169,17 +179,24 @@ const staticSearchItems = [
   },
   {
     type: "page",
-    title: "artists",
-    subtitle: "coming soon",
-    text: "Artist worlds, profiles, images, interviews, release histories, and longform notes.",
-    href: "/artists",
-  },
-  {
-    type: "page",
     title: "radio",
     subtitle: "Radio Al Haara archive",
     text: "Mixes, record pulls, studio notes, live sessions, Radio Al Haara transmissions, and San Francisco dispatches.",
     href: "/radio",
+  },
+  {
+    type: "page",
+    title: "tv",
+    subtitle: "PeaceLand TV",
+    text: "A continuous visual playlist scored by Pour Éliane and other PeaceLand transmissions.",
+    href: "/tv",
+  },
+  {
+    type: "page",
+    title: "artists",
+    subtitle: "coming soon",
+    text: "Artist worlds, profiles, images, interviews, release histories, and longform notes.",
+    href: "/artists",
   },
 ];
 
@@ -188,6 +205,7 @@ function getNavHref(item) {
   if (item === "about") return "/#about";
   if (item === "catalog") return "/catalog";
   if (item === "radio") return "/radio";
+  if (item === "tv") return "/tv";
   if (item === "artists") return "/artists";
 
   return "/";
@@ -319,12 +337,12 @@ function Footer() {
                 item === "email"
                   ? `mailto:${contactEmail}`
                   : item === "subvert"
-                  ? subvertUrl
-                  : item === "bandcamp"
-                  ? bandcampUrl
-                  : item === "instagram"
-                  ? instagramUrl
-                  : "#"
+                    ? subvertUrl
+                    : item === "bandcamp"
+                      ? bandcampUrl
+                      : item === "instagram"
+                        ? instagramUrl
+                        : "#"
               }
               className="underline decoration-transparent underline-offset-4 hover:decoration-current"
             >
@@ -617,6 +635,149 @@ function RadioPage() {
   );
 }
 
+function TVPage() {
+  const audioRef = useRef(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const currentTrack = tvTracks[currentTrackIndex];
+
+  useEffect(() => {
+    if (!audioRef.current || !isPlaying) return;
+
+    audioRef.current.load();
+    audioRef.current.play().catch(() => {
+      setIsPlaying(false);
+    });
+  }, [currentTrackIndex, isPlaying]);
+
+  function playScore() {
+    setIsPlaying(true);
+
+    if (audioRef.current) {
+      audioRef.current.play().catch(() => {
+        setIsPlaying(false);
+      });
+    }
+  }
+
+  function pauseScore() {
+    setIsPlaying(false);
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  }
+
+  function nextTrack() {
+    setCurrentTrackIndex((index) => (index + 1) % tvTracks.length);
+  }
+
+  return (
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
+      <div className="mx-auto max-w-[1180px] px-5 py-7">
+        <Header />
+
+        <section className="mb-10 grid grid-cols-1 gap-8 pb-8 md:grid-cols-3">
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>tv</p>
+            <p>PeaceLand transmissions</p>
+          </div>
+
+          <div className="text-[18px] leading-snug md:col-span-2">
+            <p>
+              A continuous visual playlist scored by w0rmw00d. The video stream
+              runs muted; press play below to hear the score.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-8 border-t-2 border-black pt-5">
+          <div className="aspect-video w-full overflow-hidden bg-black">
+            <iframe
+              title="PeaceLand TV"
+              src={youtubePlaylistEmbed}
+              className="h-full w-full"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </section>
+
+        <section className="mb-14 grid grid-cols-1 gap-8 border-t-2 border-black pt-5 md:grid-cols-3">
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>score</p>
+            <p>{String(currentTrackIndex + 1).padStart(2, "0")}</p>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-[18px] font-bold leading-tight">
+              {currentTrack.title}
+            </p>
+
+            <p className="mt-1 text-[14px] uppercase tracking-[0.12em]">
+              {currentTrack.artist}
+            </p>
+
+            <audio
+              ref={audioRef}
+              src={currentTrack.src}
+              onEnded={nextTrack}
+              preload="auto"
+            />
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              {!isPlaying ? (
+                <button
+                  type="button"
+                  onClick={playScore}
+                  className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+                >
+                  play score
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={pauseScore}
+                  className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+                >
+                  pause score
+                </button>
+              )}
+
+              <button
+                type="button"
+                onClick={nextTrack}
+                className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+              >
+                next
+              </button>
+            </div>
+
+            <div className="mt-6 border-t border-black/40 pt-3 text-[15px] leading-snug">
+              {tvTracks.map((track, index) => (
+                <button
+                  key={track.src}
+                  type="button"
+                  onClick={() => setCurrentTrackIndex(index)}
+                  className="flex w-full justify-between gap-5 border-b border-black/20 py-2 text-left hover:bg-black hover:text-[#eeeeea]"
+                >
+                  <span>
+                    {String(index + 1).padStart(2, "0")} {track.title}
+                  </span>
+                  <span>{track.artist}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </main>
+  );
+}
+
 function HomePage() {
   const [search, setSearch] = useState("");
 
@@ -645,7 +806,21 @@ function HomePage() {
       href: "/radio",
     }));
 
-    return [...pressItems, ...releaseItems, ...radioItems, ...staticSearchItems];
+    const tvItems = tvTracks.map((track) => ({
+      type: "tv",
+      title: track.title,
+      subtitle: track.artist,
+      text: "PeaceLand TV score",
+      href: "/tv",
+    }));
+
+    return [
+      ...pressItems,
+      ...releaseItems,
+      ...radioItems,
+      ...tvItems,
+      ...staticSearchItems,
+    ];
   }, []);
 
   const results = useMemo(() => {
@@ -755,8 +930,8 @@ function HomePage() {
                 </div>
               ) : (
                 <p className="text-[15px] leading-snug">
-                  no results. try “éliane,” “madlib,” “ras g,” “radio,” “launch,”
-                  “plr 000,” or “catalog.”
+                  no results. try “éliane,” “madlib,” “ras g,” “radio,” “tv,”
+                  “launch,” “plr 000,” or “catalog.”
                 </p>
               )}
             </div>
@@ -857,6 +1032,10 @@ export default function App() {
 
   if (path === "/radio") {
     return <RadioPage />;
+  }
+
+  if (path === "/tv") {
+    return <TVPage />;
   }
 
   if (path === "/artists") {
