@@ -5,7 +5,7 @@ const subvertUrl = "https://www.subvert.fm/peaceland/pour-eliane-plr-000";
 const bandcampUrl = "https://peaceland.bandcamp.com/";
 const instagramUrl = "https://www.instagram.com/peacelandrecords/";
 
-const nav = ["journal", "catalog", "radio", "artists", "about"];
+const nav = ["journal", "catalog", "radio", "bumps", "artists", "about"];
 
 const pressReleases = [
   {
@@ -144,6 +144,66 @@ const radioMixes = [
   },
 ];
 
+const bumps = [
+  {
+    number: "001",
+    title: "LISTEN FIRST",
+    type: "video",
+    file: "/bumps/listen-first.mp4",
+    duration: "00:12",
+    caption: "A small label for records that need a room around them.",
+    text: "LISTEN FIRST.",
+  },
+  {
+    number: "002",
+    title: "PLR 000 / POUR ÉLIANE",
+    type: "video",
+    file: "/bumps/plr-000-pour-eliane.mp4",
+    duration: "00:28",
+    caption:
+      "A slow visual loop for Pour Éliane Radigue, w0rmw00d, and the first PeaceLand catalog number.",
+    text: "PLR 000 / POUR ÉLIANE RADIGUE / W0RMW00D",
+  },
+  {
+    number: "003",
+    title: "RECORDS NEED ROOMS",
+    type: "image",
+    file: "/bumps/records-need-rooms.png",
+    duration: "still",
+    caption: "A title card for the label thesis.",
+    text: "records need rooms.",
+  },
+  {
+    number: "004",
+    title: "HUMAN ERROR BROADCASTING",
+    type: "video",
+    file: "/bumps/human-error-broadcasting.mp4",
+    duration: "00:21",
+    caption:
+      "Radio Al Hara, Human Error, dusty jazz, beat tapes, tribute sets, and late-night signal drift.",
+    text: "HUMAN ERROR BROADCASTING / RADIO AL HARA",
+  },
+  {
+    number: "005",
+    title: "CALIFORNIA ⇄ TOKYO",
+    type: "video",
+    file: "/bumps/california-tokyo.mp4",
+    duration: "00:20",
+    caption:
+      "A moving postcard between California, Tokyo, and the global underground.",
+    text: "CALIFORNIA ⇄ TOKYO / GLOBAL UNDERGROUND",
+  },
+  {
+    number: "006",
+    title: "PLEASE STAND BY",
+    type: "image",
+    file: "/bumps/please-stand-by.png",
+    duration: "still",
+    caption: "A small broadcast interruption from PeaceLand Records.",
+    text: "PLEASE STAND BY / PEACELAND RECORDS",
+  },
+];
+
 const journalEntries = [
   ...pressReleases,
   ...releases.map((release) => ({
@@ -156,6 +216,7 @@ const staticSearchItems = [
   {
     type: "page",
     title: "about",
+    subtitle: "LISTEN FIRST / まず聴く",
     text: "PeaceLand Records gives singular artists a world around their music: narrative, design, physical releases, community, direct-to-fan relationships, live experiences, and cultural placement. The sound can move across beat music, ambient, left-field electronic, jazz-adjacent music, sample culture, experimental pop, quiet records, loud records, and any other form that feels human, soulful, experimental, and intentional.",
     href: "/#about",
   },
@@ -180,6 +241,13 @@ const staticSearchItems = [
     text: "Mixes, record pulls, studio notes, live sessions, Radio Al Hara transmissions, and California ⇄ Tokyo dispatches.",
     href: "/radio",
   },
+  {
+    type: "page",
+    title: "bumps",
+    subtitle: "PeaceLand visual transmissions",
+    text: "Short visual loops, title cards, label IDs, broadcast interruptions, low-fidelity fragments, and Adult Swim-inspired bumps.",
+    href: "/bumps",
+  },
 ];
 
 function getNavHref(item) {
@@ -187,6 +255,7 @@ function getNavHref(item) {
   if (item === "about") return "/#about";
   if (item === "catalog") return "/catalog";
   if (item === "radio") return "/radio";
+  if (item === "bumps") return "/bumps";
   if (item === "artists") return "/artists";
 
   return "/";
@@ -263,6 +332,7 @@ function Footer() {
       >
         <div className="font-bold leading-snug">
           <p>newsletter</p>
+          <p>LISTEN FIRST</p>
         </div>
 
         <div className="md:col-span-2">
@@ -298,6 +368,17 @@ function Footer() {
             />
           </form>
 
+          <p className="mt-3 text-[12px] opacity-60">
+            powered by{" "}
+            <a
+              href="https://buttondown.com/refer/peacelandrecords415"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4"
+            >
+              buttondown
+            </a>
+          </p>
         </div>
       </section>
 
@@ -614,6 +695,109 @@ function RadioPage() {
   );
 }
 
+function BumpPreview({ bump }) {
+  if (bump.type === "video") {
+    return (
+      <video
+        src={bump.file}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="h-full w-full object-cover grayscale contrast-125"
+      />
+    );
+  }
+
+  return (
+    <img
+      src={bump.file}
+      alt={bump.title}
+      className="h-full w-full object-cover grayscale contrast-125"
+    />
+  );
+}
+
+function BumpsPage() {
+  return (
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
+      <div className="mx-auto max-w-[1180px] px-5 py-7">
+        <Header />
+
+        <section className="mb-10 grid grid-cols-1 gap-8 border-b-2 border-black pb-8 md:grid-cols-3">
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>bumps</p>
+            <p>visual transmissions</p>
+          </div>
+
+          <div className="text-[18px] leading-snug md:col-span-2">
+            <p>
+              Short visual transmissions from PeaceLand Records: label IDs,
+              low-fidelity loops, title cards, broadcast interruptions, and
+              fragments from the signal. Somewhere between late-night
+              television, public-access tape, record-store VHS, and pirate
+              radio.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {bumps.map((bump) => (
+            <article key={bump.number} className="text-[15px] leading-snug">
+              <div className="mb-3 aspect-video overflow-hidden bg-black">
+                <BumpPreview bump={bump} />
+              </div>
+
+              <div className="grid grid-cols-[70px_1fr_70px] gap-4 border-t border-black/40 pt-2">
+                <p className="tabular-nums opacity-70">{bump.number}</p>
+
+                <div>
+                  <h1 className="text-[18px] font-bold leading-tight">
+                    {bump.title}
+                  </h1>
+
+                  <p className="mt-2 max-w-xl">{bump.caption}</p>
+
+                  <p className="mt-3 text-[13px] uppercase tracking-[0.12em]">
+                    {bump.text}
+                  </p>
+                </div>
+
+                <p className="text-right tabular-nums opacity-70">
+                  {bump.duration}
+                </p>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="mb-14 grid grid-cols-1 gap-8 border-t-2 border-black pt-5 md:grid-cols-3">
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>notes</p>
+            <p>please stand by</p>
+          </div>
+
+          <div className="space-y-5 text-[18px] leading-snug md:col-span-2">
+            <p>
+              These are not music videos. They are label signals: short loops,
+              still cards, cut-up fragments, and strange little station IDs.
+            </p>
+
+            <p>
+              Some bumps are silent. Some carry beats. Some are only text. The
+              point is not polish. The point is atmosphere, repetition, grain,
+              and the feeling that the catalog is broadcasting from somewhere
+              slightly out of frame.
+            </p>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </main>
+  );
+}
+
 function HomePage() {
   const [search, setSearch] = useState("");
 
@@ -642,7 +826,21 @@ function HomePage() {
       href: "/radio",
     }));
 
-    return [...pressItems, ...releaseItems, ...radioItems, ...staticSearchItems];
+    const bumpItems = bumps.map((bump) => ({
+      type: "bump",
+      title: bump.title,
+      subtitle: bump.number,
+      text: `${bump.caption} ${bump.text} ${bump.duration}`,
+      href: "/bumps",
+    }));
+
+    return [
+      ...pressItems,
+      ...releaseItems,
+      ...radioItems,
+      ...bumpItems,
+      ...staticSearchItems,
+    ];
   }, []);
 
   const results = useMemo(() => {
@@ -752,8 +950,8 @@ function HomePage() {
                 </div>
               ) : (
                 <p className="text-[15px] leading-snug">
-                  no results. try “éliane,” “madlib,” “ras g,” “radio,” “launch,”
-                  “plr 000,” or “catalog.”
+                  no results. try “éliane,” “madlib,” “ras g,” “radio,”
+                  “bumps,” “launch,” “plr 000,” or “catalog.”
                 </p>
               )}
             </div>
@@ -854,6 +1052,10 @@ export default function App() {
 
   if (path === "/radio") {
     return <RadioPage />;
+  }
+
+  if (path === "/bumps") {
+    return <BumpsPage />;
   }
 
   if (path === "/artists") {
