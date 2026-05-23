@@ -13,7 +13,7 @@ const tvTracks = [
   {
     title: "Dickin in Dmin",
     artist: "w0rmw00d",
-    src: "/tv-dickin-dmin.mp3",
+    src: "/dickin-dmin.mp3",
   },
 ];
 
