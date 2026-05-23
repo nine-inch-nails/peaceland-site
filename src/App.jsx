@@ -11,16 +11,6 @@ const nav = ["journal", "catalog", "radio", "tv", "artists", "about"];
 
 const tvTracks = [
   {
-    title: "analogique",
-    artist: "w0rmw00d",
-    src: "/analogique.mp3",
-  },
-  {
-    title: "islas",
-    artist: "w0rmw00d",
-    src: "/islas.mp3",
-  },
-  {
     title: "Dickin in Dmin",
     artist: "w0rmw00d",
     src: "/dickin-dmin.mp3",
