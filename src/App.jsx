@@ -188,7 +188,7 @@ const staticSearchItems = [
     type: "page",
     title: "tv",
     subtitle: "PeaceLand TV",
-    text: "A continuous visual playlist scored by Pour Éliane and other PeaceLand transmissions.",
+    text: "A continuous visual playlist scored by PeaceLand transmissions.",
     href: "/tv",
   },
   {
@@ -637,19 +637,17 @@ function RadioPage() {
 
 function TVPage() {
   const audioRef = useRef(null);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const currentTrack = tvTracks[currentTrackIndex];
+  const currentTrack = tvTracks[0];
 
   useEffect(() => {
     if (!audioRef.current || !isPlaying) return;
 
-    audioRef.current.load();
     audioRef.current.play().catch(() => {
       setIsPlaying(false);
     });
-  }, [currentTrackIndex, isPlaying]);
+  }, [isPlaying]);
 
   function playScore() {
     setIsPlaying(true);
@@ -667,10 +665,6 @@ function TVPage() {
     if (audioRef.current) {
       audioRef.current.pause();
     }
-  }
-
-  function nextTrack() {
-    setCurrentTrackIndex((index) => (index + 1) % tvTracks.length);
   }
 
   return (
@@ -707,7 +701,7 @@ function TVPage() {
         <section className="mb-14 grid grid-cols-1 gap-8 border-t-2 border-black pt-5 md:grid-cols-3">
           <div className="text-[15px] font-bold leading-snug lowercase">
             <p>score</p>
-            <p>{String(currentTrackIndex + 1).padStart(2, "0")}</p>
+            <p>01</p>
           </div>
 
           <div className="md:col-span-2">
@@ -722,7 +716,7 @@ function TVPage() {
             <audio
               ref={audioRef}
               src={currentTrack.src}
-              onEnded={nextTrack}
+              loop
               preload="auto"
             />
 
@@ -744,30 +738,13 @@ function TVPage() {
                   pause score
                 </button>
               )}
-
-              <button
-                type="button"
-                onClick={nextTrack}
-                className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
-              >
-                next
-              </button>
             </div>
 
             <div className="mt-6 border-t border-black/40 pt-3 text-[15px] leading-snug">
-              {tvTracks.map((track, index) => (
-                <button
-                  key={track.src}
-                  type="button"
-                  onClick={() => setCurrentTrackIndex(index)}
-                  className="flex w-full justify-between gap-5 border-b border-black/20 py-2 text-left hover:bg-black hover:text-[#eeeeea]"
-                >
-                  <span>
-                    {String(index + 1).padStart(2, "0")} {track.title}
-                  </span>
-                  <span>{track.artist}</span>
-                </button>
-              ))}
+              <div className="flex w-full justify-between gap-5 border-b border-black/20 py-2 text-left">
+                <span>01 {currentTrack.title}</span>
+                <span>{currentTrack.artist}</span>
+              </div>
             </div>
           </div>
         </section>
