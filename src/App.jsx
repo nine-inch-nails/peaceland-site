@@ -4,12 +4,90 @@ const contactEmail = "peacelandrecords415@gmail.com";
 const subvertUrl = "https://www.subvert.fm/peaceland/pour-eliane-plr-000";
 const bandcampUrl = "https://peaceland.bandcamp.com/";
 const instagramUrl = "https://www.instagram.com/peacelandrecords/";
-const youtubePlaylistEmbed =
-  "https://www.youtube.com/embed/videoseries?list=PLP_sxcXjwdy00C66V8g13L1fntt23f77n&autoplay=1&mute=1&loop=1";
 
 const nav = ["journal", "catalog", "radio", "tv", "artists", "about"];
 
+const tvVideoIds = [
+  "KkZ2wcqZOYI",
+  "LBZw6kI1wrk",
+  "M1Z_cnIuhL8",
+  "GeyrKu34vIQ",
+  "TT9t2bF6BvU",
+  "L8r9t135_xY",
+  "RwahxVC3rDY",
+  "aHZdDmYFZN0",
+  "LDj8Tc6259o",
+  "-wYJ51nSXRQ",
+  "YRmu-GcClls",
+  "TbV7loKp69s",
+  "zhrolnhPo-s",
+  "ZrKgyY5aDvA",
+  "Dz3RStIfv9M",
+  "S5P5vkegmvU",
+  "flJOXMln4C0",
+  "G0fFLvwjr0g",
+  "nvWwlZSXaR0",
+  "dXINTf8kXCc",
+  "AecUjE1Fk3Q",
+  "RrZxw1Jb9vA",
+  "tiz2JHlNIrA",
+  "kzniaKxMr2g",
+  "2BiFwUzybE0",
+  "TnU88XWYjEs",
+  "ZXrjrr6ifME",
+  "kuZbgM8yxtY",
+  "-rVZW4xXpsE",
+  "E3-vsKwQ0Cg",
+];
+
+function getTodaySeed() {
+  const today = new Date();
+  return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+}
+
+function seededRandom(seed) {
+  let hash = 0;
+
+  for (let i = 0; i < seed.length; i += 1) {
+    hash = (hash << 5) - hash + seed.charCodeAt(i);
+    hash |= 0;
+  }
+
+  return function random() {
+    hash = (hash * 1664525 + 1013904223) % 4294967296;
+    return Math.abs(hash / 4294967296);
+  };
+}
+
+function shuffleByDay(items) {
+  const shuffled = [...items];
+  const random = seededRandom(getTodaySeed());
+
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
+const dailyTvVideoIds = shuffleByDay(tvVideoIds);
+const firstTvVideoId = dailyTvVideoIds[0];
+const tvPlaylistParam = dailyTvVideoIds.join(",");
+
+const youtubePlaylistEmbed = `https://www.youtube.com/embed/${firstTvVideoId}?autoplay=1&mute=1&loop=1&playlist=${tvPlaylistParam}`;
+
 const tvTracks = [
+  {
+    title: "analogique",
+    artist: "w0rmw00d",
+    src: "/analogique.mp3",
+  },
+  {
+    title: "islas",
+    artist: "w0rmw00d",
+    src: "/islas.mp3",
+  },
   {
     title: "Dickin in Dmin",
     artist: "w0rmw00d",
@@ -188,7 +266,7 @@ const staticSearchItems = [
     type: "page",
     title: "tv",
     subtitle: "PeaceLand TV",
-    text: "A continuous visual playlist scored by PeaceLand transmissions.",
+    text: "A daily-shuffled visual playlist scored by PeaceLand transmissions.",
     href: "/tv",
   },
   {
@@ -686,8 +764,8 @@ function TVPage() {
 
           <div className="text-[18px] leading-snug md:col-span-2">
             <p>
-              A continuous visual playlist scored by w0rmw00d. The video stream
-              runs muted; press play below to hear the score.
+              A daily-shuffled visual playlist scored by w0rmw00d. The video
+              stream runs muted; press play below to hear the score.
             </p>
           </div>
         </section>
