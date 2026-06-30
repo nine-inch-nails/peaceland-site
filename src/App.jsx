@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const contactEmail = "peacelandrecords415@gmail.com";
-const subvertUrl = "https://www.subvert.fm/peaceland/pour-eliane-plr-000";
 const bandcampUrl = "https://peaceland.bandcamp.com/";
 const instagramUrl = "https://www.instagram.com/peacelandrecords/";
 
@@ -91,7 +90,22 @@ const tvTracks = [
   {
     title: "Dickin in Dmin",
     artist: "w0rmw00d",
-    src: "/dickin-dmin.mp3",
+    src: "/tv-dickin-dmin.mp3",
+  },
+];
+
+const artists = [
+  {
+    name: "AshTreJinkins",
+    location: "",
+    image: "",
+    bio: "Bio coming soon.",
+  },
+  {
+    name: "Trip Shrubb",
+    location: "",
+    image: "",
+    bio: "Bio coming soon.",
   },
 ];
 
@@ -107,15 +121,14 @@ const pressReleases = [
     longText: [
       "PeaceLand Records announces its launch as a small, artist-first independent label built around deep listening, physical culture, direct-to-fan relationships, and cultural exchange between California, Tokyo, and the global underground.",
       "The label begins with a simple belief: music deserves more than being uploaded, scrolled past, and forgotten.",
-      "PeaceLand exists to give singular artists a world around their music. Not just distribution. Not just a logo. Not just another post in the feed. The label is built to support the full life of a release: narrative, design, physical editions, community, direct fan relationships, live experiences, cultural placement, and the slower work of helping music find the people who will truly care for it.",
+      "PeaceLand exists to give singular artists a world around their music. Not just distribution. Not just a logo. Not just another post in the feed. The label is built to support the full life of a release: narrative, design, physical editions, direct fan relationships, live experiences, cultural placement, and the slower work of helping music find the people who will truly care for it.",
       "At the center of PeaceLand is the phrase LISTEN FIRST. It is both a slogan and a way of moving. Listen before speaking. Listen before deciding what something is. Listen deeply enough that the music tells you what it needs.",
-      "PeaceLand Records is not built for scale at any cost. It is not a major-label imitation, a playlist company, a content farm, or a fake-viral marketing machine. It is a home for music that feels human, soulful, experimental, intentional, and difficult to place. The sound can move through beat music, ambient music, left-field electronic work, jazz-adjacent forms, sample-based records, experimental pop, quiet records, loud records, private worlds, and strange songs that do not fit cleanly into a genre.",
+      "PeaceLand Records is not built for scale at any cost. It is not a major-label imitation, a playlist company, a content farm, or a fake-viral marketing machine. It is a home for music that feels human, soulful, experimental, intentional, and difficult to place.",
       "The genre matters less than the feeling. The music has to have a pulse. It has to have a point of view.",
       "PeaceLand believes in records as worlds. In songs as places. In artists as people with histories, contradictions, obsessions, and futures. A release should feel like more than a file on a platform. It should have a room around it. A story. A physical trace. A sound system. A flyer on a wall. A record on the table. A tape in the bag. A liner note. A late-night email. A friend telling another friend, “you need to hear this.”",
       "PeaceLand exists to build those rooms.",
       "Rooted in California and open to everywhere, the label also imagines itself as a cultural bridge between California, Tokyo, and the wider underground. That bridge is not aesthetic decoration. It is a way of thinking about how music actually travels: through artists, record shops, listening bars, DJs, venues, writers, friends, and fans who still care enough to pay attention.",
       "In practice, PeaceLand will begin carefully. Small roster. High taste. Direct relationships. Releases that feel detailed enough to archive and alive enough to hit the street. The label will focus on artist-friendly release structures, transparent rights, meaningful physical objects, intentional design, editorial framing, and long-term trust.",
-      "PeaceLand’s first release, PLR 000: Pour Éliane Radigue by w0rmw00d, sets the tone for the label’s opening gesture. Created as an homage to Éliane Radigue, the EP reimagines two of her works through loop-based edits, Neutone VSTs, FX pedals, and subtle processing. It is a quiet act of remembrance; a release shaped by patience, resonance, and gratitude. As an opening catalog number, Pour Éliane Radigue reflects the label’s interest in music as attention, not spectacle.",
       "Alongside its catalog, PeaceLand will gradually develop a small media arm: PeaceLand Radio, mix series, artist notes, studio visits, record pulls, live sessions, liner note essays, and California ⇄ Tokyo dispatches. The point is not content for content’s sake. It is documentation, taste-making, and world-building. A label should not only release music; it should help preserve the conditions around the music.",
       "PeaceLand is anti-hype and pro-depth. It will avoid staged discovery narratives, fake grassroots marketing, manipulative scarcity, and the machinery that turns artists into content pipelines. Instead, it will move through real listening parties, real artist notes, real DJ support, real radio, real record-store relationships, real newsletters, real physical objects, and real community.",
       "The work is simple, but not small: make music feel less disposable. Give singular artists a world around their work. Press things into memory. Build community without pretending it is marketing. Move carefully, show up loudly, and leave behind a catalog that still feels alive years from now.",
@@ -124,29 +137,7 @@ const pressReleases = [
   },
 ];
 
-const releases = [
-  {
-    date: "05.11.2026",
-    title: "Pour Éliane Radigue",
-    artist: "w0rmw00d",
-    catalog: "PLR 000",
-    format: "Digital Download",
-    image: "/pour-eliane.png",
-    tracks: ["islas", "anologique"],
-    subvert: subvertUrl,
-    credits: "w0rmw00d",
-    text: "Created as an homage to Éliane Radigue, Pour Éliane reimagines two of her works through a personal and contemporary lens. Rather than treating the originals as fixed objects, w0rmw00d approaches them as living materials; sources of resonance, patience, and transformation.",
-    longText: [
-      "Pour Éliane is a quiet act of remembrance; a personal homage to Éliane Radigue, whose work altered the course of electronic and experimental music with uncommon patience, humility, and depth.",
-      "Across the EP, w0rmw00d works from fragments of Radigue’s L’Île re-sonante, drawing from its source material to create two loop-based pieces shaped through Neutone VSTs, FX pedals, and subtle processing. Rather than pulling the work away from its origin, these edits remain close to the material itself; stretching, circling, and refracting its tones through contemporary tools. What emerges is neither cover nor quotation in the traditional sense, but a gesture of gratitude toward an artist whose music taught generations how to hear slowness, stillness, and interior movement.",
-      "Radigue’s creative path began in the orbit of musique concrète, the post-war French movement associated with Pierre Schaeffer and Pierre Henry, where recorded sound itself became compositional material. Tape, feedback, room tone, machinery, resonance, and accident were no longer peripheral; they became music. From these beginnings, Radigue developed a language entirely her own. Her early work with tape and feedback eventually led to the ARP 2500 synthesizer, through which she created vast, slowly unfolding electronic works of remarkable subtlety. Later, her practice expanded into acoustic composition, most notably through the Occam Ocean series.",
-      "Her music asks for attention rather than spectacle. It does not impose itself. It reveals itself over time.",
-      "Pour Éliane follows that spirit. The EP moves with restraint, allowing small shifts in tone, texture, and pressure to become the central drama. Sound is approached as something almost physical: a field, a surface, a breath, a current. In making these pieces, w0rmw00d sought not to imitate Radigue, but to honor the freedom she made possible; the permission to work slowly, to listen deeply, and to trust the emotional force of minimal change.",
-      "Released in the wake of Radigue’s passing, Pour Éliane is offered with deep respect for her life, her work, and the immense space she opened for artists working with sound.",
-      "À rien ne peut m'arrêter maintenant",
-    ],
-  },
-];
+const releases = [];
 
 const radioMixes = [
   {
@@ -232,20 +223,14 @@ const radioMixes = [
   },
 ];
 
-const journalEntries = [
-  ...pressReleases,
-  ...releases.map((release) => ({
-    ...release,
-    href: "/catalog",
-  })),
-];
+const journalEntries = [...pressReleases];
 
 const staticSearchItems = [
   {
     type: "page",
     title: "about",
     subtitle: "about",
-    text: "PeaceLand Records gives singular artists a world around their music: narrative, design, physical releases, community, direct-to-fan relationships, live experiences, and cultural placement. The sound can move across beat music, ambient, left-field electronic, jazz-adjacent music, sample culture, experimental pop, quiet records, loud records, and any other form that feels human, soulful, experimental, and intentional.",
+    text: "PeaceLand Records gives singular artists a world around their music: narrative, design, physical releases, community, direct-to-fan relationships, live experiences, and cultural placement.",
     href: "/#about",
   },
   {
@@ -272,10 +257,17 @@ const staticSearchItems = [
   {
     type: "page",
     title: "artists",
-    subtitle: "coming soon",
-    text: "Artist worlds, profiles, images, interviews, release histories, and longform notes.",
+    subtitle: "AshTreJinkins / Trip Shrubb",
+    text: "Artist pages, bios, images, release histories, and longform notes.",
     href: "/artists",
   },
+  ...artists.map((artist) => ({
+    type: "artist",
+    title: artist.name,
+    subtitle: "PeaceLand artist",
+    text: artist.bio,
+    href: "/artists",
+  })),
 ];
 
 function getNavHref(item) {
@@ -408,19 +400,17 @@ function Footer() {
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
-          {["subvert", "bandcamp", "instagram", "email"].map((item) => (
+          {["bandcamp", "instagram", "email"].map((item) => (
             <a
               key={item}
               href={
                 item === "email"
                   ? `mailto:${contactEmail}`
-                  : item === "subvert"
-                    ? subvertUrl
-                    : item === "bandcamp"
-                      ? bandcampUrl
-                      : item === "instagram"
-                        ? instagramUrl
-                        : "#"
+                  : item === "bandcamp"
+                    ? bandcampUrl
+                    : item === "instagram"
+                      ? instagramUrl
+                      : "#"
               }
               className="underline decoration-transparent underline-offset-4 hover:decoration-current"
             >
@@ -430,39 +420,6 @@ function Footer() {
         </nav>
       </div>
     </footer>
-  );
-}
-
-function ComingSoonPage({ pageTitle }) {
-  return (
-    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
-      <div className="mx-auto max-w-[1180px] px-5 py-7">
-        <Header />
-
-        <section className="mb-14 grid grid-cols-1 gap-8 pb-14 md:grid-cols-3">
-          <div className="text-[15px] font-bold leading-snug lowercase">
-            <p>{pageTitle}</p>
-            <p>coming soon</p>
-          </div>
-
-          <div className="text-[22px] leading-snug md:col-span-2">
-            <p>
-              This section is coming soon. PeaceLand is opening slowly: first
-              the journal, then the archive, then the rooms around it.
-            </p>
-
-            <a
-              href="/"
-              className="mt-6 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
-            >
-              return to journal
-            </a>
-          </div>
-        </section>
-
-        <Footer />
-      </div>
-    </main>
   );
 }
 
@@ -481,10 +438,10 @@ function PressReleasePage() {
             <p>{press.artist}</p>
 
             <a
-              href={subvertUrl}
+              href={bandcampUrl}
               className="mt-5 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
             >
-              listen / download
+              bandcamp
             </a>
 
             <a
@@ -505,7 +462,7 @@ function PressReleasePage() {
             </p>
 
             <div className="mb-8 w-full overflow-hidden bg-black/10">
-              <a href={subvertUrl}>
+              <a href={bandcampUrl}>
                 <img
                   src={press.image}
                   alt={press.title}
@@ -515,30 +472,8 @@ function PressReleasePage() {
             </div>
 
             <div className="space-y-5 text-[16px] leading-snug">
-              {press.longText.map((paragraph, index) => (
-                <p key={paragraph}>
-                  {index === 10 ? (
-                    <>
-                      PeaceLand’s first release,{" "}
-                      <a
-                        href={subvertUrl}
-                        className="font-bold underline underline-offset-4"
-                      >
-                        PLR 000: Pour Éliane Radigue by w0rmw00d
-                      </a>
-                      , sets the tone for the label’s opening gesture. Created
-                      as an homage to Éliane Radigue, the EP reimagines two of
-                      her works through loop-based edits, Neutone VSTs, FX
-                      pedals, and subtle processing. It is a quiet act of
-                      remembrance; a release shaped by patience, resonance, and
-                      gratitude. As an opening catalog number, Pour Éliane
-                      Radigue reflects the label’s interest in music as
-                      attention, not spectacle.
-                    </>
-                  ) : (
-                    paragraph
-                  )}
-                </p>
+              {press.longText.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
 
@@ -571,68 +506,27 @@ function CatalogPage() {
 
         <section
           id="catalog"
-          className="mb-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-3"
+          className="mb-14 grid grid-cols-1 gap-8 border-b-2 border-black pb-14 md:grid-cols-3"
         >
-          {releases.map((release) => (
-            <article
-              key={release.catalog}
-              className="text-[15px] leading-snug md:col-span-3"
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>catalog</p>
+            <p>coming soon</p>
+          </div>
+
+          <div className="text-[22px] leading-snug md:col-span-2">
+            <p>
+              The catalog is being prepared. Future PeaceLand releases will live
+              here with catalog numbers, credits, notes, links, and physical
+              edition information.
+            </p>
+
+            <a
+              href={bandcampUrl}
+              className="mt-6 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
             >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                <div>
-                  <p className="mb-2 tabular-nums">{release.catalog}</p>
-
-                  <h1 className="mb-2 text-[22px] font-bold leading-tight">
-                    {release.title}
-                  </h1>
-
-                  <p className="mb-3 text-[14px] uppercase tracking-[0.12em]">
-                    {release.artist}
-                  </p>
-
-                  <p>{release.date}</p>
-                  <p>{release.format}</p>
-
-                  <div className="mt-5">
-                    <p className="font-bold">tracklist</p>
-                    <ol className="mt-2 list-decimal pl-5">
-                      {release.tracks.map((track) => (
-                        <li key={track}>{track}</li>
-                      ))}
-                    </ol>
-                  </div>
-
-                  <div className="mt-5">
-                    <p className="font-bold">credits</p>
-                    <p>{release.credits}</p>
-                  </div>
-
-                  <a
-                    href={release.subvert}
-                    className="mt-5 inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
-                  >
-                    listen / download
-                  </a>
-                </div>
-
-                <div className="md:col-span-2">
-                  <div className="mb-6 w-full overflow-hidden bg-black/10">
-                    <img
-                      src={release.image}
-                      alt={`${release.artist} – ${release.title}`}
-                      className="w-full object-cover"
-                    />
-                  </div>
-
-                  <div className="space-y-5 text-[16px] leading-snug">
-                    {release.longText.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
+              bandcamp
+            </a>
+          </div>
         </section>
 
         <Footer />
@@ -856,18 +750,87 @@ function TVPage() {
   );
 }
 
+function ArtistsPage() {
+  return (
+    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
+      <div className="mx-auto max-w-[1180px] px-5 py-7">
+        <Header />
+
+        <section className="mb-10 grid grid-cols-1 gap-8 pb-8 md:grid-cols-3">
+          <div className="text-[15px] font-bold leading-snug lowercase">
+            <p>artists</p>
+          </div>
+
+          <div className="text-[18px] leading-snug md:col-span-2">
+            <p>
+              PeaceLand artist pages. Bios, images, notes, releases, and links
+              will be added here as each world takes shape.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-14 border-t-2 border-black">
+          {artists.map((artist) => (
+            <article
+              key={artist.name}
+              className="grid grid-cols-1 gap-8 border-b border-black/40 py-8 md:grid-cols-3"
+            >
+              <div>
+                <p className="mb-2 text-[13px] lowercase opacity-70">artist</p>
+
+                <h1 className="text-[24px] font-bold leading-tight">
+                  {artist.name}
+                </h1>
+
+                {artist.location && (
+                  <p className="mt-2 text-[14px] uppercase tracking-[0.12em]">
+                    {artist.location}
+                  </p>
+                )}
+              </div>
+
+              <div className="md:col-span-2">
+                {artist.image ? (
+                  <div className="mb-6 aspect-[4/3] w-full overflow-hidden bg-black/10">
+                    <img
+                      src={artist.image}
+                      alt={artist.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="mb-6 flex aspect-[4/3] w-full items-center justify-center border-2 border-black bg-transparent text-[14px] lowercase opacity-60">
+                    image coming soon
+                  </div>
+                )}
+
+                <div className="space-y-5 text-[16px] leading-snug">
+                  <p>{artist.bio}</p>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={bandcampUrl}
+                    className="inline-block border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
+                  >
+                    bandcamp
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <Footer />
+      </div>
+    </main>
+  );
+}
+
 function HomePage() {
   const [search, setSearch] = useState("");
 
   const searchItems = useMemo(() => {
-    const releaseItems = releases.map((release) => ({
-      type: "journal",
-      title: release.title,
-      subtitle: release.artist,
-      text: `${release.text} ${release.longText.join(" ")} ${release.catalog} ${release.format} ${release.tracks.join(" ")}`,
-      href: "/#journal",
-    }));
-
     const pressItems = pressReleases.map((press) => ({
       type: "journal",
       title: press.title,
@@ -892,13 +855,7 @@ function HomePage() {
       href: "/tv",
     }));
 
-    return [
-      ...pressItems,
-      ...releaseItems,
-      ...radioItems,
-      ...tvItems,
-      ...staticSearchItems,
-    ];
+    return [...pressItems, ...radioItems, ...tvItems, ...staticSearchItems];
   }, []);
 
   const results = useMemo(() => {
@@ -922,7 +879,7 @@ function HomePage() {
 
     return journalEntries.filter((entry) => {
       const haystack = normalize(
-        `${entry.date} ${entry.title} ${entry.artist} ${entry.text} ${entry.catalog || ""} ${entry.format || ""}`,
+        `${entry.date} ${entry.title} ${entry.artist} ${entry.text} ${entry.format || ""}`,
       );
 
       return haystack.includes(query);
@@ -1008,8 +965,8 @@ function HomePage() {
                 </div>
               ) : (
                 <p className="text-[15px] leading-snug">
-                  no results. try “éliane,” “madlib,” “ras g,” “radio,” “tv,”
-                  “launch,” “plr 000,” or “catalog.”
+                  no results. try “madlib,” “ras g,” “radio,” “tv,” “artists,”
+                  “launch,” or “catalog.”
                 </p>
               )}
             </div>
@@ -1052,7 +1009,6 @@ function HomePage() {
 
               <div className="flex justify-between border-t border-black/40 pt-2 text-[13px]">
                 <span>{entry.format}</span>
-                {entry.catalog && <span>{entry.catalog}</span>}
               </div>
             </article>
           ))}
@@ -1117,7 +1073,7 @@ export default function App() {
   }
 
   if (path === "/artists") {
-    return <ComingSoonPage pageTitle="artists" />;
+    return <ArtistsPage />;
   }
 
   return <HomePage />;
