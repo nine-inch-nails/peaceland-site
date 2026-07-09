@@ -103,9 +103,9 @@ const artists = [
   },
   {
     name: "Trip Shrubb",
-    location: "",
-    image: "",
-    bio: "Bio coming soon.",
+    location: "Hillentrup, DE",
+    image: "michael_beckett_blackwhite.jpeg",
+    bio: "Michael Beckett has a way of working that feels almost stubborn in the best sense. He commits early. He makes decisions while the sound is still warm. He lets the process leave fingerprints. The result is music that feels less like it was assembled and more like it was captured, shaped in real time, then released into the world without being overprotected.",
   },
 ];
 
