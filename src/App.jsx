@@ -98,7 +98,7 @@ const artists = [
   {
     name: "Ahwlee",
     location: "Long Beach, CA",
-    image: "ahwlee_cover.png",
+    image: "ahwlee_final.png",
     bio: "For Ahwlee, (pronounced Ali) inspiration can be found anywhere. Born in Long Beach, California with stints spent in Nashville, Tennessee and Flint, Michigan, the art of his craft lies combining dissimilar elements—such as The Delfonics, The Bernie Mac Show and America’s “Red Summer” of 1919—and creating a cohesive sound that taps into listeners’ collective unconscious. ",
   },
   {
