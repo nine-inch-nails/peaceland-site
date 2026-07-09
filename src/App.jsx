@@ -98,7 +98,7 @@ const artists = [
   {
     name: "Ahwlee",
     location: "Long Beach, CA",
-    image: "ahwlee_cover",
+    image: "ahwlee_cover.png",
     bio: "For Ahwlee, (pronounced Ali) inspiration can be found anywhere. Born in Long Beach, California with stints spent in Nashville, Tennessee and Flint, Michigan, the art of his craft lies combining dissimilar elements—such as The Delfonics, The Bernie Mac Show and America’s “Red Summer” of 1919—and creating a cohesive sound that taps into listeners’ collective unconscious. ",
   },
   {
@@ -116,13 +116,13 @@ const artists = [
   {
     name: "Linafornia",
     location: "Los Angeles, CA",
-    image: "linafornia_cover",
+    image: "linafornia_cover.png",
     bio: "Sounding like a blend of Madlib vintage soul claps and Organized Noize inspired bottom swing,",
   },
   {
     name: "Rnd1",
     location: "Tucson, AZ",
-    image: "rnd1_cover",
+    image: "rnd1_cover.png",
     bio: "Beats 4 dayz",
   },
   {
