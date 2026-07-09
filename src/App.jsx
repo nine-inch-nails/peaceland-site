@@ -766,19 +766,6 @@ function ArtistsPage() {
       <div className="mx-auto max-w-[1180px] px-5 py-7">
         <Header />
 
-        <section className="mb-10 grid grid-cols-1 gap-8 pb-8 md:grid-cols-3">
-          <div className="text-[15px] font-bold leading-snug lowercase">
-            <p>artists</p>
-          </div>
-
-          <div className="text-[18px] leading-snug md:col-span-2">
-            <p>
-              PeaceLand artist pages. Bios, images, notes, releases, and links
-              will be added here as each world takes shape.
-            </p>
-          </div>
-        </section>
-
         <section className="mb-14 border-t-2 border-black">
           {artists.map((artist) => (
             <article
