@@ -135,7 +135,7 @@ const artists = [
     name: "Siifu",
     location: "Birmingham, AL",
     image: "siifu_cover.png",
-    bio: "Killing Dante",
+    bio: "Killing Dante East",
   },
   
   {
