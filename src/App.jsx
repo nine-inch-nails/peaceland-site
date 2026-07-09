@@ -221,6 +221,16 @@ const radioMixes = [
     synopsis:
       "A trip through Madlib’s jazz universe: cracked swing, deep crates, aliases, fragments, and the looseness that turns records into language.",
   },
+
+  {
+    date: "06.05.2026",
+    title: "Human Error: Bebop Al Haara",
+    artist: "w0rmw00d",
+    url: "https://on.soundcloud.com/GbuC7IJBq3xrXU5z3B",
+    image: "/bebop%20al%20haara.png",
+    synopsis:
+      "A Cowboy Bebop-inspired transmission for Radio Al Haara: smoky jazz fragments, drifting city moods, beat-tape noir, and late-night space-western atmosphere.",
+  },
 ];
 
 const journalEntries = [...pressReleases];
