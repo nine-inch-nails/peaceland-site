@@ -96,14 +96,51 @@ const tvTracks = [
 
 const artists = [
   {
-    name: "AshTreJinkins",
-    location: "",
-    image: "",
-    bio: "Bio coming soon.",
+    name: "Ahwlee",
+    location: "Long Beach, CA",
+    image: "ahwlee_cover",
+    bio: "For Ahwlee, (pronounced Ali) inspiration can be found anywhere. Born in Long Beach, California with stints spent in Nashville, Tennessee and Flint, Michigan, the art of his craft lies combining dissimilar elements—such as The Delfonics, The Bernie Mac Show and America’s “Red Summer” of 1919—and creating a cohesive sound that taps into listeners’ collective unconscious. ",
   },
   {
+    name: "AshTreJinkins",
+    location: "Fresno, CA",
+    image: "ashtrejinkins_cover.png",
+    bio: "The Project Blowed (Beat Cypher Collective) youngin / Low End Theory alumni / LA Native",
+  },
+  {
+    name: "LanceSkiiiwalker",
+    location: "Los Angeles, CA",
+    image: "Lance Skiiiwalkerinsta.png",
+    bio: "Lance Skiiiwalker is a singer, producer, and all around creative from Chicago, Illinois. After being discovered by Kendrick Lamar, he became a frequent collaborator and eventually signed with Top Dawg Entertainment. His sound is hard to define, varying between psychedelic and alternative with influences from jazz, hip-hop, and soul. ",
+  },
+  {
+    name: "Linafornia",
+    location: "Los Angeles, CA",
+    image: "linafornia_cover",
+    bio: "Sounding like a blend of Madlib vintage soul claps and Organized Noize inspired bottom swing,",
+  },
+  {
+    name: "Rnd1",
+    location: "Tucson, AZ",
+    image: "rnd1_cover",
+    bio: "Beats 4 dayz",
+  },
+  {
+    name: "Saib",
+    location: "Casablanca, Morocco",
+    image: "saib_cover.png",
+    bio: "Hip Hop | Jazz | Electronic | Instrumental",
+  },
+  {
+    name: "Siifu",
+    location: "Birmingham, AL",
+    image: "siifu_cover.png",
+    bio: "BALANCE!",
+  },
+  
+  {
     name: "Trip Shrubb",
-    location: "Hillentrup, DE",
+    location: "Hillentrup, Germany",
     image: "michael_beckett_blackwhite.jpeg",
     bio: "Michael Beckett has a way of working that feels almost stubborn in the best sense. He commits early. He makes decisions while the sound is still warm. He lets the process leave fingerprints. The result is music that feels less like it was assembled and more like it was captured, shaped in real time, then released into the world without being overprotected.",
   },
