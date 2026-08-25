@@ -4,95 +4,7 @@ const contactEmail = "peacelandrecords415@gmail.com";
 const bandcampUrl = "https://peaceland.bandcamp.com/";
 const instagramUrl = "https://www.instagram.com/peacelandrecords/";
 
-const nav = ["journal", "catalog", "radio", "tv", "artists", "about"];
-
-const tvVideoIds = [
-  "KkZ2wcqZOYI",
-  "LBZw6kI1wrk",
-  "M1Z_cnIuhL8",
-  "GeyrKu34vIQ",
-  "TT9t2bF6BvU",
-  "L8r9t135_xY",
-  "RwahxVC3rDY",
-  "aHZdDmYFZN0",
-  "LDj8Tc6259o",
-  "-wYJ51nSXRQ",
-  "YRmu-GcClls",
-  "TbV7loKp69s",
-  "zhrolnhPo-s",
-  "ZrKgyY5aDvA",
-  "Dz3RStIfv9M",
-  "S5P5vkegmvU",
-  "flJOXMln4C0",
-  "G0fFLvwjr0g",
-  "nvWwlZSXaR0",
-  "dXINTf8kXCc",
-  "AecUjE1Fk3Q",
-  "RrZxw1Jb9vA",
-  "tiz2JHlNIrA",
-  "kzniaKxMr2g",
-  "2BiFwUzybE0",
-  "TnU88XWYjEs",
-  "ZXrjrr6ifME",
-  "kuZbgM8yxtY",
-  "-rVZW4xXpsE",
-  "E3-vsKwQ0Cg",
-];
-
-function getTodaySeed() {
-  const today = new Date();
-  return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-}
-
-function seededRandom(seed) {
-  let hash = 0;
-
-  for (let i = 0; i < seed.length; i += 1) {
-    hash = (hash << 5) - hash + seed.charCodeAt(i);
-    hash |= 0;
-  }
-
-  return function random() {
-    hash = (hash * 1664525 + 1013904223) % 4294967296;
-    return Math.abs(hash / 4294967296);
-  };
-}
-
-function shuffleByDay(items) {
-  const shuffled = [...items];
-  const random = seededRandom(getTodaySeed());
-
-  for (let i = shuffled.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  return shuffled;
-}
-
-const dailyTvVideoIds = shuffleByDay(tvVideoIds);
-const firstTvVideoId = dailyTvVideoIds[0];
-const tvPlaylistParam = dailyTvVideoIds.join(",");
-
-const youtubePlaylistEmbed = `https://www.youtube.com/embed/${firstTvVideoId}?autoplay=1&mute=1&loop=1&playlist=${tvPlaylistParam}`;
-
-const tvTracks = [
-  {
-    title: "analogique",
-    artist: "w0rmw00d",
-    src: "/analogique.mp3",
-  },
-  {
-    title: "islas",
-    artist: "w0rmw00d",
-    src: "/islas.mp3",
-  },
-  {
-    title: "Dickin in Dmin",
-    artist: "w0rmw00d",
-    src: "/tv-dickin-dmin.mp3",
-  },
-];
+const nav = ["journal", "artists", "catalogue", "radio", "tv", "about"];
 
 const artists = [
   {
@@ -143,7 +55,6 @@ const artists = [
     image: "swarvy-image.jpg",
     bio: "Killing Dante East",
   },
-  
   {
     name: "Trip Shrubb",
     location: "Hillentrup, Germany",
@@ -190,7 +101,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/cCH4DXclqoZzfHcyUm",
     image: "/bluntsgiving%20show.png",
     synopsis:
-      "A smoke-thick holiday broadcast moving through dusty loops, left-field beat music, soul fragments, and late-night selections.",
+      "We Smokin' REEFER",
   },
   {
     date: "12.24.2025",
@@ -199,7 +110,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/w0hNscmRMmiLodk6bi",
     image: "/Knxmas%20show.png",
     synopsis:
-      "A winter dedication to the swing, looseness, and emotional grammar of the LA beat scene, with KNXwledge energy at the center.",
+      "Beats, Beer, Baby Jesus...and Knxwledge.",
   },
   {
     date: "01.28.2026",
@@ -208,7 +119,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/Z2sP7uxckd5DEZVLqR",
     image: "/new%20year%20show.png",
     synopsis:
-      "A reflective turn-of-year session of jazz textures, soft loops, private moods, and records for beginning again.",
+      "Happy 2026 ya'll",
   },
   {
     date: "02.07.2026",
@@ -217,7 +128,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/EWU66sn8UTdB7MiiAL",
     image: "/nujabes%3Adilla.png",
     synopsis:
-      "A tribute to two architects of feeling in beat music: Dilla’s drum language and Nujabes’ melodic, drifting sense of memory.",
+      "The goats. RIP forever",
   },
   {
     date: "02.25.2026",
@@ -226,7 +137,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/ign93075Oqdz2o3Rvn",
     image: "/radigue.png",
     synopsis:
-      "A slow, patient transmission around Éliane Radigue, resonance, stillness, and the emotional force of small changes in sound.",
+      "I had a surreal experience of finishing Blank Forms' Alein Roots #10 on Eliane Radigue. The morning I finished was the morning she passed on. Et il est un jour arrivé. Marteler le ciel. Et marteler la mer. Et la mer avait embrassé moi. Et la délivré moi de ma caille. À rien ne peut m'arrêter maintenant",
   },
   {
     date: "03.27.2026",
@@ -235,7 +146,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/auMPoknfgEDaFSfcLC",
     image: "/ashtre-release.png",
     synopsis:
-      "A score-like beattape transmission for The Killing of Dante East; dusty loops, strange tension, and comic-book atmosphere.",
+      "Dante East is president. He's taking over the world through brainwashing over the airwaves. Will you succumb or join the resistance? Here's the antidote. Volume 1 of 8.",
   },
   {
     date: "04.04.2026",
@@ -244,7 +155,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/UPaa3koYwgDQNTb4RS",
     image: "/404%20day.png",
     synopsis:
-      "A 404 Day tribute to Ras G and the Afrikan Space Program: cosmic debris, SP-404 pressure, raw rhythm, and low-end memory.",
+      "A 404 Day tribute to Ras G and the Afrikan Space Program. RIP Ras and ケンジさん、ありがとうございます.",
   },
   {
     date: "04.20.2026",
@@ -253,7 +164,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/AYVwc7XcXsTV2eqaox",
     image: "/420.png",
     synopsis:
-      "A hazy 420 transmission of smoked-out beat music, low-slung loops, strange grooves, and altered-room selections.",
+      "Hey Hey Hey Hey....Smoke Weed Everyday!!",
   },
   {
     date: "04.22.2026",
@@ -262,7 +173,7 @@ const radioMixes = [
     url: "https://on.soundcloud.com/1Vd5N3uO0XDaYd6uCQ",
     image: "/madlib%20jazz.png",
     synopsis:
-      "A trip through Madlib’s jazz universe: cracked swing, deep crates, aliases, fragments, and the looseness that turns records into language.",
+      "Madlib is the GOAT. His jazz puts him in a lane of his own. Go deep.",
   },
 
   {
@@ -272,8 +183,16 @@ const radioMixes = [
     url: "https://on.soundcloud.com/GbuC7IJBq3xrXU5z3B",
     image: "/bebop%20al%20haara.png",
     synopsis:
-      "A Cowboy Bebop-inspired transmission for Radio Al Haara: smoky jazz fragments, drifting city moods, beat-tape noir, and late-night space-western atmosphere.",
+      "See You Space Cowboy",
   },
+
+  {
+    date: "08.26.2026",
+    title: "Human Error: Adult Swim Bumps Edition",
+    artist: "w0rmw00d",
+    url: "https://soundcloud.com/user-242695785/bumps-al-hara-august-26",
+    image: "bumps.png",
+    synopsis: "bumps for life. i smoked a lot of weed and mixed this on the 404. it's not very good..."
 ];
 
 const journalEntries = [...pressReleases];
@@ -297,14 +216,14 @@ const staticSearchItems = [
     type: "page",
     title: "radio",
     subtitle: "Radio Al Haara archive",
-    text: "Mixes, record pulls, studio notes, live sessions, Radio Al Haara transmissions, and San Francisco dispatches.",
+    text: "mixes and other random ephemera.",
     href: "/radio",
   },
   {
     type: "page",
     title: "tv",
     subtitle: "PeaceLand TV",
-    text: "A daily-shuffled visual playlist scored by PeaceLand transmissions.",
+    text: "under construction",
     href: "/tv",
   },
   {
@@ -652,149 +571,6 @@ function RadioPage() {
               </div>
             </article>
           ))}
-        </section>
-
-        <Footer />
-      </div>
-    </main>
-  );
-}
-
-function TVPage() {
-  const audioRef = useRef(null);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const currentTrack = tvTracks[currentTrackIndex];
-
-  useEffect(() => {
-    if (!audioRef.current || !isPlaying) return;
-
-    audioRef.current.load();
-    audioRef.current.play().catch(() => {
-      setIsPlaying(false);
-    });
-  }, [currentTrackIndex, isPlaying]);
-
-  function playScore() {
-    setIsPlaying(true);
-
-    if (audioRef.current) {
-      audioRef.current.play().catch(() => {
-        setIsPlaying(false);
-      });
-    }
-  }
-
-  function pauseScore() {
-    setIsPlaying(false);
-
-    if (audioRef.current) {
-      audioRef.current.pause();
-    }
-  }
-
-  function nextTrack() {
-    setCurrentTrackIndex((index) => (index + 1) % tvTracks.length);
-  }
-
-  return (
-    <main className="min-h-screen text-[#171717] selection:bg-black selection:text-white">
-      <div className="mx-auto max-w-[1180px] px-5 py-7">
-        <Header />
-
-        <section className="mb-10 grid grid-cols-1 gap-8 pb-8 md:grid-cols-3">
-          <div className="text-[15px] font-bold leading-snug lowercase">
-            <p>tv</p>
-            <p>PeaceLand transmissions</p>
-          </div>
-
-          <div className="text-[18px] leading-snug md:col-span-2">
-            <p>
-              A daily-shuffled visual playlist scored by w0rmw00d. The video
-              stream runs muted; press play below to hear the score.
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-8 border-t-2 border-black pt-5">
-          <div className="aspect-video w-full overflow-hidden bg-black">
-            <iframe
-              title="PeaceLand TV"
-              src={youtubePlaylistEmbed}
-              className="h-full w-full"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </section>
-
-        <section className="mb-14 grid grid-cols-1 gap-8 border-t-2 border-black pt-5 md:grid-cols-3">
-          <div className="text-[15px] font-bold leading-snug lowercase">
-            <p>score</p>
-            <p>{String(currentTrackIndex + 1).padStart(2, "0")}</p>
-          </div>
-
-          <div className="md:col-span-2">
-            <p className="text-[18px] font-bold leading-tight">
-              {currentTrack.title}
-            </p>
-
-            <p className="mt-1 text-[14px] uppercase tracking-[0.12em]">
-              {currentTrack.artist}
-            </p>
-
-            <audio
-              ref={audioRef}
-              src={currentTrack.src}
-              onEnded={nextTrack}
-              preload="auto"
-            />
-
-            <div className="mt-5 flex flex-wrap gap-3">
-              {!isPlaying ? (
-                <button
-                  type="button"
-                  onClick={playScore}
-                  className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
-                >
-                  play score
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={pauseScore}
-                  className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
-                >
-                  pause score
-                </button>
-              )}
-
-              <button
-                type="button"
-                onClick={nextTrack}
-                className="border-2 border-black px-4 py-2 text-[14px] font-bold lowercase hover:bg-black hover:text-[#eeeeea]"
-              >
-                next
-              </button>
-            </div>
-
-            <div className="mt-6 border-t border-black/40 pt-3 text-[15px] leading-snug">
-              {tvTracks.map((track, index) => (
-                <button
-                  key={track.src}
-                  type="button"
-                  onClick={() => setCurrentTrackIndex(index)}
-                  className="flex w-full justify-between gap-5 border-b border-black/20 py-2 text-left hover:bg-black hover:text-[#eeeeea]"
-                >
-                  <span>
-                    {String(index + 1).padStart(2, "0")} {track.title}
-                  </span>
-                  <span>{track.artist}</span>
-                </button>
-              ))}
-            </div>
-          </div>
         </section>
 
         <Footer />
