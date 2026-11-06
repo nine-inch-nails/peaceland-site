@@ -180,7 +180,28 @@ const pressReleases = [
   },
 ];
 
-const releases = [];
+const releases = [
+  {
+    slug: "nujje",
+    date: "11.06.2026",
+    artist: "Trip Shrubb",
+    title: "NÜJJE!",
+    format: "Album",
+    image: "/NÜJJE!_Cover_front_s.jpg",
+    bandcamp: "https://peaceland.bandcamp.com/album/n-jje",
+    stream: "https://go.mhe.fm/ts_njje",
+    single: "https://go.mhe.fm/ts_leuwerhanning",
+    youtube: "https://youtu.be/s5UrcKI6Xyg?si=YNAvq62doaTzRBYr",
+    youtubeEmbed: "https://www.youtube-nocookie.com/embed/s5UrcKI6Xyg",
+    text: "PeaceLand Records presents NÜJJE!, Trip Shrubb's reimagining of Neu!'s debut album. Out November 6, 2026.",
+    longText: [
+      "NÜJJE! is Trip Shrubb's reimagining of Neu!'s debut album: not a replica, not a restoration, but a record built from the feeling of encountering that music and carrying it somewhere else.",
+      "Trip Shrubb is the project of Michael Beckett, whose work has previously appeared on Faitiche. Here, the repetition, momentum, looseness, and physicality associated with Neu! become material for a new record rather than instructions for imitation.",
+      "The result feels handmade and immediate. Decisions remain audible. The process leaves fingerprints. NÜJJE! is less interested in polishing away those traces than in preserving the energy that made them worth recording in the first place.",
+      "NÜJJE! arrives November 6, 2026 on PeaceLand Records.",
+    ],
+  },
+];
 
 const radioMixes = [
   {
